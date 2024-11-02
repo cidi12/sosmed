@@ -44,19 +44,20 @@ class CredentialController extends Controller
     public function login(Request $request){
         $request->validate(
             [
-                'login-email'=>'required|string',
-                'login-password'=>'required|string'
+                'login_email'=>'required|string',
+                'login_password'=>'required|string'
             ]
         );
       
-        $credentials = $request->only('email','password');
-
+        $credentials = ['email' => $request->login_email, 'password' => $request->login_password];
+       
         if (Auth::guard('member')->attempt($credentials)) {
       
             
             return redirect('dashboard');
         } else {
-            return redirect('dashboardss');
+         
+            return redirect('dashboards');
         }
         }
     

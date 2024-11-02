@@ -10,9 +10,8 @@ class Credential extends Authenticatable
 {
     use HasFactory;
     // protected $guarded = ['id'];
-    protected $fillable = [
+    protected $guarded = [
         
-        'email',
-        'password',
+        'id'
     ];
 }

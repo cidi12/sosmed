@@ -29,11 +29,11 @@
                         @endif
                         <fieldset>
                             <legend>Email</legend>
-                            <input type="email" name="login-email" required>
+                            <input type="email" name="login_email" required>
                         </fieldset>
                         <fieldset>
                             <legend>Password</legend>
-                            <input type="password" name="login-password" required>
+                            <input type="password" name="login_password" required>
                         </fieldset>
                         <button class="button-login" type="submit">Sign in</button>
                     </div>
