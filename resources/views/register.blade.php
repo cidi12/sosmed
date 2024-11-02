@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <title>Login</title>
+        <title>Register</title>
     </head>
 
     <body class="credential-layout">
@@ -16,7 +16,7 @@
                     <img src="{{ asset('img/logo.jpg') }}">
                 </div>
                 <div class="credential-text">
-                    <p>Welcome to Fesnuk!</p>
+                    <p>Register to Fesnuk!</p>
                 </div>
 
                 <form action="">
@@ -29,11 +29,11 @@
                             <legend>Password</legend>
                             <input type="password" required>
                         </fieldset>
-                        <button class="button-login" type="submit">Sign in</button>
+                        <button class="button-login" type="submit">Regist</button>
                     </div>
                 </form>
                 <div class="helper-text">
-                    <p>Don't have account? <span><a href="register">register here</a></span></p>
+                    <p>Already have an account? <span><a href="home">Sign in here</a></span></p>
                 </div>
                 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CredentialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CredentialController::class, 'index'])->name('home')->middleware('guest');
+Route::get('register', [CredentialController::class, 'register'])->name('register')->middleware('guest');
+
+Route::get('/{any}', [CredentialController::class, 'index'])
+    ->where('any', '.*')->middleware('guest');
