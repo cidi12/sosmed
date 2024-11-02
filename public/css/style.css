@@ -7,10 +7,26 @@ html {
     padding: 0;
 }
 body {
-background-color: #fdefef;
-font-family: poppin, Georgia, 'Times New Roman', Times, serif;
+    background-color: #fdefef;
+    font-family: poppin, Georgia, "Times New Roman", Times, serif;
 }
-
+.error-box {
+    position: relative;
+    margin-top: -30px;
+    margin-bottom: -5px;
+    color: #D8000C;
+   
+   
+}
+.success-box {
+    position: relative;
+    margin-top: -30px;
+    margin-bottom: -5px;
+    color: #4F8A10;
+	
+   
+   
+}
 /* LOGIN REGIS */
 .credential-layout {
     display: flex;
@@ -23,8 +39,6 @@ font-family: poppin, Georgia, 'Times New Roman', Times, serif;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
- 
-   
 }
 .logo img {
     width: 100px;
@@ -60,7 +74,7 @@ fieldset input {
 .button-login {
     background-color: blueviolet;
     color: #fdefef;
-    font-family: poppin, Georgia, 'Times New Roman', Times, serif;
+    font-family: poppin, Georgia, "Times New Roman", Times, serif;
     font-weight: bold;
     font-size: 1.2rem;
     border-radius: 25px;
@@ -69,13 +83,12 @@ fieldset input {
     margin-top: 1rem;
 }
 .button-login:hover {
-cursor: pointer;
+    cursor: pointer;
 }
 .button-login:focus {
     transform: scale(0.9);
 }
 .helper-text p {
-   
     font-size: 0.8rem;
     text-align: center;
 }

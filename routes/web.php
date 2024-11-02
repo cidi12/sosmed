@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CredentialController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [CredentialController::class, 'index'])->name('home')->middleware('guest');
-Route::get('register', [CredentialController::class, 'register'])->name('register')->middleware('guest');
+Route::get('signup', [CredentialController::class, 'signUpPage'])->name('signup')->middleware('guest');
+Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard');
 
+Route::post('register',[CredentialController::class,'register'])->name('register');
+Route::post('login',[CredentialController::class, 'login'])->name('login');
 Route::get('/{any}', [CredentialController::class, 'index'])
     ->where('any', '.*')->middleware('guest');
