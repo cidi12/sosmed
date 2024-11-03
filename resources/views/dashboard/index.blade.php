@@ -7,5 +7,10 @@
 </head>
 <body>
     Halo kucing
+    <form action="logout" method="post">
+        @csrf
+         <button type="submit" >Log out</button>
+    </form>
+   
 </body>
 </html>

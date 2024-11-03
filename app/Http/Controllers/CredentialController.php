@@ -10,55 +10,69 @@ use Illuminate\Support\Facades\Hash;
 
 class CredentialController extends Controller
 {
-    public function index (){
+    public function index()
+    {
         return view('index');
     }
-    public function signUpPage (){
+    public function signUpPage()
+    {
         return view('register');
     }
-    
-    public function register(Request $request){
+
+    public function register(Request $request)
+    {
         $validated = $request->validate(
             [
-                'regist-email'=>'required|string',
-                'regist-password'=>'required|string'
+                'regist-email' => 'required|string',
+                'regist-password' => 'required|string'
             ]
         );
         $email = $validated['regist-email'];
         $password = $validated['regist-password'];
         $hash = Hash::make($password);
-        $checkExistEmail = Credential::where('email',$email)->first(); 
-        if ($checkExistEmail){
+        $checkExistEmail = Credential::where('email', $email)->first();
+        if ($checkExistEmail) {
             return view('partials.signup')->with('regErr', 'Username sudah terdaftar!');
         } else {
-            Credential::create([
-                'email'=>$email,
-                'password'=>$hash
+            Credential::create(
+                [
+                    'email' => $email,
+                    'password' => $hash
                 ]
             );
             return view('index')->with('regSucc', 'User berhasil ditambahkan!');
         }
-        
-
     }
-    public function login(Request $request){
-        $request->validate(
+    public function login(Request $request)
+    {
+        $validated = $request->validate(
             [
-                'login_email'=>'required|string',
-                'login_password'=>'required|string'
+                'login_email' => 'required|string',
+                'login_password' => 'required|string'
             ]
         );
-      
-        $credentials = ['email' => $request->login_email, 'password' => $request->login_password];
-       
+
+        $credentials = ['email' => $validated['login_email'], 'password' => $validated['login_password']];
+
         if (Auth::guard('member')->attempt($credentials)) {
-      
-            
-            return redirect('dashboard');
+           $request->session()->regenerate();
+          $user = Auth::guard('member')->user()->email;
+          $test = Credential::where('email', $user)->first();
+            // dd($test->id);
+            // Auth::guard('member')->login($test);
+            Auth::guard('member')->loginUsingId($test->email);
+            return redirect('dashboard')->with('logSuccess', 'Login Sukses');
         } else {
-         
-            return redirect('dashboards');
+           
+            return redirect('/')->with('logFail', 'Email atau Password salah');
         }
-        }
-    
+    }
+    public function logout(Request $request)
+    {
+        
+        Auth::guard('member')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerate();
+        return redirect('/');
+    }
 }

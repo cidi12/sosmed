@@ -27,6 +27,9 @@
                         @if (!empty($regSucc))
                             <div class="success-box"> {{ $regSucc }}</div>
                         @endif
+                        @if (session('logFail'))
+                            <div class="error-box"> {{ session('logFail') }}</div>
+                        @endif
                         <fieldset>
                             <legend>Email</legend>
                             <input type="email" name="login_email" required>

@@ -12,7 +12,7 @@
 
 
     <body class="credential-layout">
-       
+
         <div id="hx-form">
             <header>
 
@@ -28,13 +28,13 @@
                         @csrf
                         <div class="input-login">
                             @if (!empty($regErr))
-                            <div class="error-box"> {{ $regErr }}</div>
-                        @endif
+                                <div class="error-box"> {{ $regErr }}</div>
+                            @endif
                             <fieldset>
                                 <legend>Email</legend>
                                 <input type="email" name="regist-email" required>
                             </fieldset>
-                           
+
                             <fieldset>
                                 <legend>Password</legend>
                                 <input type="password" name="regist-password" required>
