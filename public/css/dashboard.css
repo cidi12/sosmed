@@ -20,7 +20,7 @@ nav {
     width: 100%;
     border-bottom: solid rgba(0, 0, 0, 0.197) 1px;
     box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
-    padding: 10px 0 10px 0;
+    padding: 10px 0 5px 0;
     background-color: #fff;
 }
 .left-section, .mid-section, .right-section {
@@ -91,5 +91,46 @@ nav {
     cursor: pointer;
     transform: scale(1.1);
 }
+
+.fa {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual fa */
+  .fa .popuptext {
+    font-size: 1rem;
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: -160%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* fa arrow */
+  .fa .popuptext::after {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+    rotate: 180deg;
+  }
+  
 
 /* NAVBAR END */
