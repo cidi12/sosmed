@@ -1,0 +1,13 @@
+@media  (max-width : 1028px) {
+    .mid-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        padding: 10px 10px 5px 10px;
+    }
+    .left-section, .right-section {
+        display: none;
+    }
+}
