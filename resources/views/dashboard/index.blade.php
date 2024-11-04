@@ -34,8 +34,9 @@
                     <i class="fa fa-bell fa-2x" id="notifikasi" onmouseover="hoverFunction5()" aria-hidden="true"><a
                             href=""></a><span class="popuptext" id="myPopup5">Notifikasi</span></i>
                     <div class="hamburger-menu">
-                        <button onclick="hamburger()"> <i class="fa fa-bars fa-2x"></i></button>
-                        <div class="hamburger-items">
+                        <button id="mobile-menu"> <i class="fa fa-bars fa-2x"></i></button>
+                        <button id="mobile-menu-close"> <i class="fa fa-bars fa-2x"></i></button>
+                        <div class="hamburger-items" id="hamburger-items">
                             <a href="">Profile</a>
                             <a href="">Friend list</a>
                             <a href="">Market Place</a>

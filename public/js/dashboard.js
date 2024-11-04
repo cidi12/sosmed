@@ -52,3 +52,47 @@ function hidePopupOutside5() {
     var popup = document.getElementById("myPopup5");
     popup.style.visibility = 'hidden';
 }
+
+// hamburger menu 
+const menuToggle = document.getElementById("mobile-menu");
+const menuToggle2 = document.getElementById("mobile-menu-close");
+//   Toggle navbar when menuToggle is clicked
+menuToggle.addEventListener("click", function () {
+    // navbar.classList.toggle('active');
+    var sidebar = document.getElementById("hamburger-items");
+    // sidebar.classList.toggle("show");
+    sidebar.style.display = 'flex'
+    menuToggle.style.display = 'none'
+    menuToggle2.style.display = 'block'
+});
+
+
+
+//   Toggle navbar when menuToggle is clicked
+menuToggle2.addEventListener("click", function () {
+    // navbar.classList.toggle('active');
+    var sidebar2 = document.getElementById("hamburger-items");
+    // sidebar.classList.toggle("show");
+    sidebar2.style.display = 'none'
+     menuToggle.style.display = 'block'
+    menuToggle2.style.display = 'none'
+
+});
+// const closeOrder = document.querySelector(".close-button");
+// closeOrder.addEventListener("click", function () {
+//     // navbar.classList.toggle('active');
+
+//     sidebar.classList.toggle("hidden");
+// });
+
+//   Close navbar when clicking outside of it
+// document.addEventListener('click', function(event) {
+//   const isClickInsideNavbar = navbar.contains(event.target);
+//   const isClickInsideMenuToggle = menuToggle.contains(event.target);
+
+//   if (!isClickInsideNavbar && !isClickInsideMenuToggle && navbar.classList.contains('active')) {
+//     navbar.classList.remove('active');
+//     sidebar.classList.toggle('hidden');
+//   }
+// });
+
