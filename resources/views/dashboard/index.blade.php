@@ -15,7 +15,7 @@
 
         <header>
             <nav>
-                <div class="left-section">
+                <div class="left-section-nav">
                     <img src="{{ asset('img/logo.jpg') }}">
                     <div class="searchbar-container">
                         <label for="searchbar"><i class="fa fa-search"></i></label>
@@ -23,41 +23,61 @@
                     </div>
 
                 </div>
-                <div class="mid-section">
+                <div class="mid-section-nav">
                     <i class="fa fa-home fa-2x" id="beranda" onmouseover="hoverFunction()" aria-hidden="true"><a
                             href=""></a><span class="popuptext" id="myPopup">Beranda</span></i>
 
                     <i class="fa fa-users fa-2x" id="komunitas" onmouseover="hoverFunction2()" aria-hidden="true"><a
-                        href=""></a><span class="popuptext" id="myPopup2">Komunitas</span></i>
-
-                    <i class="fa fa-shopping-bag fa-2x" id="marketplace" onmouseover="hoverFunction3()" aria-hidden="true"><a
-                        href=""></a><span class="popuptext" id="myPopup3">Marketplace</span></i>
-                    
-                        <i class="fa fa-bell fa-2x" id="notifikasi" onmouseover="hoverFunction5()" aria-hidden="true"><a
+                            href=""></a><span class="popuptext" id="myPopup2">Komunitas</span></i>
+                    <i class="fa fa-comments fa-2x" id="pesan" onmouseover="hoverFunction4()" aria-hidden="true"><a
+                            href=""></a><span class="popuptext" id="myPopup4">Pesan</span></i>
+                    <i class="fa fa-bell fa-2x" id="notifikasi" onmouseover="hoverFunction5()" aria-hidden="true"><a
                             href=""></a><span class="popuptext" id="myPopup5">Notifikasi</span></i>
+                    <div class="hamburger-menu">
+                        <button onclick="hamburger()"> <i class="fa fa-bars fa-2x"></i></button>
+                        <div class="hamburger-items">
+                            <a href="">Profile</a>
+                            <a href="">Friend list</a>
+                            <a href="">Market Place</a>
+                            <a href="">Sign out</a>
+                        </div>
+                    </div>
 
                 </div>
-                <div class="right-section">
-                    <i class="fa fa-comments fa-2x" id="pesan" onmouseover="hoverFunction4()" aria-hidden="true"><a
-                        href=""></a><span class="popuptext" id="myPopup4">Pesan</span></i>
+                <div class="right-section-nav">
+                    <i class="fa fa-shopping-bag fa-2x" id="marketplace" onmouseover="hoverFunction3()"
+                        aria-hidden="true"><a href=""></a><span class="popuptext"
+                            id="myPopup3">Marketplace</span></i>
 
-                   
                     <div class="circle-container">
                         <div class="image-container">
                             <img src="{{ asset('img/profile.png') }}">
                         </div>
                         <div class="animated-border"></div>
-                    
-                      </div>
-                    
+
+                    </div>
+
                     {{-- <form action="logout" method="post">
                     @csrf
                      <button type="submit" >Log out</button>
                 </form> --}}
                 </div>
 
+
+
             </nav>
         </header>
+        <main>
+            <div class="left-section-body">
+                <p>left</p>
+            </div>
+            <div class="mid-section-body">
+                <p>middle</p>
+            </div>
+            <div class="right-section-body">
+                <p>right</p>
+            </div>
+        </main>
         {{-- <div>
   Halo {{ Auth::user()->email }}
     </div> --}}
@@ -65,7 +85,7 @@
 
 
 
-     <script src="{{ asset('js/dashboard.js') }}"></script>
+        <script src="{{ asset('js/dashboard.js') }}"></script>
 
     </body>
 
