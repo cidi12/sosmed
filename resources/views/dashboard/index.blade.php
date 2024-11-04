@@ -41,7 +41,15 @@
                     <i class="fa fa-comments fa-2x" id="pesan" onmouseover="hoverFunction4()" aria-hidden="true"><a
                         href=""></a><span class="popuptext" id="myPopup4">Pesan</span></i>
 
-                    <img src="{{ asset('img/profile.png') }}">
+                   
+                    <div class="circle-container">
+                        <div class="image-container">
+                            <img src="{{ asset('img/profile.png') }}">
+                        </div>
+                        <div class="animated-border"></div>
+                    
+                      </div>
+                    
                     {{-- <form action="logout" method="post">
                     @csrf
                      <button type="submit" >Log out</button>
