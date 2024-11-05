@@ -1,4 +1,4 @@
-@media  (max-width : 1028px) {
+@media  (max-width : 1000px) {
     .mid-section-nav {
         display: flex;
         justify-content: space-between;
@@ -35,13 +35,21 @@
         right: 0;
         background-color: white;
         box-shadow: rgba(99, 99, 99, 0.3) 0px 4px 8px -4px;
-        padding: 10px 17px 10px 0;
+        padding: 30px 17px 10px 0;
         width: 100%;
         margin-top: 10px;
+        gap: 15px;
     }
     .hamburger-menu button {
         width: 100%;
         border: none;
+    }
+    #searchbar {
+        border-radius: 15px;
+        height: 30px;
+        border: none;
+        outline: none;
+        padding: 12px;
     }
    
     #mobile-menu-close {

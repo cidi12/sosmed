@@ -37,6 +37,10 @@
                         <button id="mobile-menu"> <i class="fa fa-bars fa-2x"></i></button>
                         <button id="mobile-menu-close"> <i class="fa fa-bars fa-2x"></i></button>
                         <div class="hamburger-items" id="hamburger-items">
+                            <div class="searchbar-container">
+                                <label for="searchbar"><i class="fa fa-search"></i></label>
+                                <input type="search" name="" id="searchbar" placeholder="Cari di Fesnuk">
+                            </div>
                             <a href="">Profile</a>
                             <a href="">Friend list</a>
                             <a href="">Market Place</a>
@@ -73,7 +77,24 @@
                 <p>left</p>
             </div>
             <div class="mid-section-body">
-                <p>middle</p>
+                <div class="post-status-container">
+                    <div class="circle-container">
+                        <div class="image-container">
+                            <img src="{{ asset('img/profile.png') }}">
+                        </div>
+                        <div class="animated-border"></div>
+
+                    </div>
+                    <div>
+                        <button>Tuliskan sesuatu yang menarik !</button>
+                    </div>
+                    <div>
+                        <i class="fa-regular fa-image fa-3x"></i>
+                    </div>
+                </div>
+                <div class="post-list">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At nulla vero ipsum dolorem ad, cumque perspiciatis neque voluptate laudantium quasi provident praesentium autem quisquam necessitatibus culpa laborum odit alias adipisci cum eveniet. Commodi porro omnis modi maiores culpa adipisci error officia harum quae alias fuga corrupti cupiditate repellat quia, dolores qui molestiae animi laboriosam facere. Atque praesentium animi, nobis omnis aperiam quas debitis magni accusamus ea vero consequuntur? Ab deleniti quas, nobis ducimus iste autem laudantium illo, vel aperiam quos culpa earum sed doloremque maiores reprehenderit beatae, consequuntur quibusdam ea enim numquam quaerat. Facere quam error repudiandae eos obcaecati provident!</p>
+                </div>
             </div>
             <div class="right-section-body">
                 <p>right</p>
