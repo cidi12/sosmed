@@ -81,15 +81,21 @@ menuToggle2.addEventListener("click", function () {
 
 // auto hide 2nd nav when scrolled
 const lowernav = document.querySelector('nav')
+const upperLeftContainer = document.querySelector('.upper-left-container')
+const upperRightContainer = document.querySelector('.upper-right-container')
 let prev = window.scrollY;
 window.onscroll = function (){
     let curent = window.scrollY
     if (prev>curent){
         document.querySelector('.post-status-container').style.top ="75px"
         lowernav.style.boxShadow ="none"
+        upperLeftContainer.style.top = '155px'
+         upperRightContainer.style.top = '155px'
     } else {
           document.querySelector('.post-status-container').style.top ="-35px"
         lowernav.style.boxShadow ="0px 3px 6px -4px grey"
+        upperLeftContainer.style.top = "85px"
+        upperRightContainer.style.top = "85px"
     }
     prev = curent
 }

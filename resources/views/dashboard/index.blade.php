@@ -74,7 +74,30 @@
         </header>
         <main>
             <div class="left-section-body">
-                <p>left</p>
+                <div class="upper-left-container">
+                    <b>Trending hari ini</b>
+                    <hr>
+                    <div class="trending-list">
+                        <a href="">Kucing nangis</a>
+                        <a href="">Presiden baru</a>
+                        <a href="">Kurikulum baru</a>
+                        <a href="">Pilkada damai</a>
+                        <a href="">Garuda biru</a>
+                        <a href="">Makan gratis</a>
+                        <a href="">Selimutnya mana wo</a>
+                    </div>
+                    <br>
+                    <b>Pintasan Grup</b>
+                    <hr>
+                    <div class="group-list">
+                        <a href="">Ingin Menjadi Programmer Handal Namun Enggan Ngoding</a>
+                        <a href="">Javascript Bahasa Tol...</a>
+                        <a href="">PHP Bahasa Dewa</a>
+                        <a href="">Komunitas Orang Susah (KOS-BADAK)</a>
+                        <a href="">IMMORTAL FISH (REBORN)</a>
+                    </div>
+                </div>
+                
             </div>
             <div class="mid-section-body">
                 <div class="post-status-container">
@@ -97,7 +120,31 @@
                 </div>
             </div>
             <div class="right-section-body">
-                <p>right</p>
+                <div class="upper-right-container">
+                    <b>Permintaan pertemanan</b>
+                    <hr>
+                    <div class="friend-request">
+                        <a href="">Kucing</a>
+                        <a href="">Presiden</a>
+                        <a href="">Kambing</a>
+                        <a href="">Wowo</a>
+                        <a href="">Bobi de cat</a>
+                        <a href="">Keledais</a>
+                        <a href="">Kucing tampan</a>
+                    </div>
+                    <br>
+                    <b>Pertemanan</b>
+                    <hr>
+                    <div class="friend-list">
+                        <a href="">Kudaeee</a>
+                        <a href="">Presiden RI</a>
+                        <a href="">Kambing jantansss</a>
+                        <a href="">Si Bolang</a>
+                        <a href="">Bobi kartanagara</a>
+                        <a href="">Jardeen</a>
+                        <a href="">Kucing Pemberani</a>
+                    </div>
+                </div>
             </div>
         </main>
         {{-- <div>
