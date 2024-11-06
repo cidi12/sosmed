@@ -206,7 +206,7 @@ nav {
 /* MAIN SECTION */
 main {
     display: grid;
-    grid-template-columns: 200px auto 200px;
+    grid-template-columns: 20% auto 20%;
     gap: 30px;
     margin-top: 80px;
     height: 1200px;
