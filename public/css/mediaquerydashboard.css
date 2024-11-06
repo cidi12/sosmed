@@ -1,4 +1,5 @@
 @media  (max-width : 1000px) {
+  
     .mid-section-nav {
         display: flex;
         justify-content: space-between;
@@ -24,6 +25,42 @@
         width: 100%;
         height: 100%;
     }
+    .circle-container {
+        position: relative;
+        width: 45px;
+        height: 45px;
+        margin: 5px;
+      }
+      
+      .animated-border {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 45px;
+        height: 45px;
+        border: 2px solid purple;
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      
+      .image-container {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        
+      }
+      
+      .image-container img {
+        width: 45px;
+        height: 45px;
+        border-radius: 30px;
+        display: block;
+        margin: 0 auto 0 auto;
+        background-color: purple;
+        object-fit: contain;
+      }
+      
     .hamburger-menu {
         display: block;
     }
@@ -34,7 +71,7 @@
         position: absolute;
         right: 0;
         background-color: white;
-        box-shadow: rgba(99, 99, 99, 0.3) 0px 4px 8px -4px;
+        box-shadow: rgba(99, 99, 99, 0.3) 0px 6px 8px -4px;
         padding: 30px 17px 10px 0;
         width: 100%;
         margin-top: 10px;

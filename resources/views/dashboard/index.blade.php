@@ -89,7 +89,7 @@
                         <button>Tuliskan sesuatu yang menarik !</button>
                     </div>
                     <div>
-                        <i class="fa-regular fa-image fa-3x"></i>
+                        <i class="fa-regular fa-image fa-2x"></i>
                     </div>
                 </div>
                 <div class="post-list">
