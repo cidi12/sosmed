@@ -116,8 +116,17 @@
                     </div>
                 </div>
                 <div class="post-list">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At nulla vero ipsum dolorem ad, cumque perspiciatis neque voluptate laudantium quasi provident praesentium autem quisquam necessitatibus culpa laborum odit alias adipisci cum eveniet. Commodi porro omnis modi maiores culpa adipisci error officia harum quae alias fuga corrupti cupiditate repellat quia, dolores qui molestiae animi laboriosam facere. Atque praesentium animi, nobis omnis aperiam quas debitis magni accusamus ea vero consequuntur? Ab deleniti quas, nobis ducimus iste autem laudantium illo, vel aperiam quos culpa earum sed doloremque maiores reprehenderit beatae, consequuntur quibusdam ea enim numquam quaerat. Facere quam error repudiandae eos obcaecati provident!</p>
-                </div>
+                    <div class="post-detail">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At nulla vero ipsum dolorem ad, cumque perspiciatis neque voluptate laudantium quasi provident praesentium autem quisquam necessitatibus culpa laborum odit alias adipisci cum eveniet. Commodi porro omnis modi maiores culpa adipisci error officia harum quae alias fuga corrupti cupiditate repellat quia, dolores qui molestiae animi laboriosam facere. Atque praesentium animi, nobis omnis aperiam quas debitis magni accusamus ea vero consequuntur? Ab deleniti quas, nobis ducimus iste autem laudantium illo, vel aperiam quos culpa earum sed doloremque maiores reprehenderit beatae, consequuntur quibusdam ea enim numquam quaerat. Facere quam error repudiandae eos obcaecati provident!</p>
+                
+                    </div>
+                    <div class="post-detail">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At nulla vero ipsum dolorem ad, cumque perspiciatis neque voluptat</p>
+                        <img src="{{ asset('img/logo.jpg') }}" alt="">
+                        <img src="{{ asset('img/hijau.jpg') }}" alt="">
+                        <img src="{{ asset('img/hijau.jpg') }}" alt="">
+                    </div>
+                   </div>
             </div>
             <div class="right-section-body">
                 <div class="upper-right-container">

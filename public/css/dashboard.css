@@ -218,6 +218,7 @@ main {
     margin-top: 65px;
 }
 
+
 .upper-left-container, .upper-right-container {
   position: sticky;
   top: 75px;
@@ -266,6 +267,18 @@ main {
 }
 .post-list {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 10px;
  
+}
+.post-detail {
+  border: solid blue 1px;
+}
+.post-detail img {
+  width: 200px;
+  height: 150px;
+  object-fit: contain;
 }
 /* MAIN SECTION END*/

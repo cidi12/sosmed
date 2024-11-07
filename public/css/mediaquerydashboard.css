@@ -1,5 +1,5 @@
 
-@media  (max-width : 1024px) {
+@media  (max-width : 999px) {
   
     .mid-section-nav {
         display: flex;
@@ -93,4 +93,9 @@
     #mobile-menu-close {
         display: none;
     }
+    .post-detail img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
 }
