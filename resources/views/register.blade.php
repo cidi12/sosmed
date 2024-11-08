@@ -34,7 +34,10 @@
                                 <legend>Email</legend>
                                 <input type="email" name="regist-email" required>
                             </fieldset>
-
+                            <fieldset>
+                                <legend>Username</legend>
+                                <input type="text" name="regist-username" required>
+                            </fieldset>
                             <fieldset>
                                 <legend>Password</legend>
                                 <input type="password" name="regist-password" required>

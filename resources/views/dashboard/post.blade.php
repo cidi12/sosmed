@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
+    <form action="post" method="POST">
+        @csrf
         <input type="text" name="post-title">
         <textarea name="post-content" id="" cols="30" rows="10"></textarea>
         <button type="submit">Post</button>

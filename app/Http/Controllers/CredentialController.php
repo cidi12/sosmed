@@ -24,10 +24,12 @@ class CredentialController extends Controller
         $validated = $request->validate(
             [
                 'regist-email' => 'required|string',
+                'regist-username' => 'required|string',
                 'regist-password' => 'required|string'
             ]
         );
         $email = $validated['regist-email'];
+        $username = $validated['regist-username'];
         $password = $validated['regist-password'];
         $hash = Hash::make($password);
         $checkExistEmail = Credential::where('email', $email)->first();
@@ -37,6 +39,7 @@ class CredentialController extends Controller
             Credential::create(
                 [
                     'email' => $email,
+                    'username' => $username,
                     'password' => $hash
                 ]
             );

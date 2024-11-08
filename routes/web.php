@@ -25,5 +25,6 @@ Route::get('post',[PostController::class, 'index'])->name('post')->middleware('a
 Route::post('register',[CredentialController::class,'register'])->name('register');
 Route::post('login',[CredentialController::class, 'login'])->name('login');
 Route::post('logout',[CredentialController::class, 'logout'])->name('logout');
+Route::post('post',[PostController::class, 'post'])->name('post');
 Route::get('/{any}', [CredentialController::class, 'index'])
     ->where('any', '.*')->middleware('guest:member');
