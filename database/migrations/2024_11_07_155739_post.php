@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('username');
-            $table->string('post');
+            $table->string('post_title');
+            $table->string('post_content');
             $table->string('like');
             $table->string('dislike');
             $table->string('share');

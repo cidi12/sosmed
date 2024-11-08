@@ -109,7 +109,7 @@
 
                     </div>
                     <div>
-                        <button>Tuliskan sesuatu yang menarik !</button>
+                        <a href="post"><button>Tuliskan sesuatu yang menarik !</button></a>
                     </div>
                     <div>
                         <i class="fa-regular fa-image fa-2x"></i>
