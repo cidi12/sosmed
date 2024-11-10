@@ -44,7 +44,11 @@
                             <a href="">Profile</a>
                             <a href="">Friend list</a>
                             <a href="">Market Place</a>
-                            <a href="">Sign out</a>
+                            <form action="logout" method="POST">
+                                @csrf
+                                <button>Sign out</button>
+                            </form>
+                           
                         </div>
                     </div>
 
