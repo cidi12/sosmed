@@ -276,7 +276,7 @@ main {
   border: solid purple 0.7px;
 }
 .post-list {
-  padding: 10px;
+  padding: 0 0 0 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -285,11 +285,24 @@ main {
  
 }
 .post-detail {
-  border: solid blue 1px;
+  /* border: solid blue 1px; */
 }
 .post-detail img {
   width: 200px;
   height: 150px;
   object-fit: contain;
+}
+.interaction-button {
+  display: flex;
+  justify-content:flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+}
+.dislike, .like, .share {
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  gap: 5px;
 }
 /* MAIN SECTION END*/

@@ -126,14 +126,28 @@
                         </div>
                         <div class="post-detail">
                             <p>{{ $post->post_title }}</p>
-                            <hr>
+                            
                             <p>{{ $post->post_content }}</p>
-                            <div>
-                                <p>Like : {{ $post->like }}</p>
-                                <p>Dislike : {{ $post->dislike }}</p>
-                                <p>Share : {{ $post->share }}</p>
+                            <div class="interaction-button">
+                                <div class="like">
+                                    <i class="fa-solid fa-circle-up"></i>
+                                    <p>{{ $post->like }}</p>
+                                </div>
+                                
+                                <div class="dislike">
+                                    <i class="fa-solid fa-circle-down"></i>
+                                    <p>{{ $post->dislike }}</p>
+                                </div>
+                                <div class="share">
+                                    <i class="fa-solid fa-share"></i>
+                                    <p>{{ $post->share }}</p>
+                                </div>
+                               
                             </div>
+                            
                         </div>
+                        <hr>
+                       
                     @endforeach
                 </div>
             </div>
