@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('post_title');
             $table->string('post_content');
+            $table->json('comment')->nullable();
             $table->string('like')->default('0');
             $table->string('dislike')->default('0');
             $table->string('share')->default('0');

@@ -142,7 +142,13 @@
                                     <i class="fa-solid fa-share"></i>
                                     <p>{{ $post->share }}</p>
                                 </div>
-                               
+                            </div>
+                           
+                            <div class="comment-section">
+                                @foreach ($post->comment as $cmt)
+                                     <p> {{ $cmt['name'] }}</p>
+                                     <p> {{ $cmt['text'] }}</p>
+                                @endforeach
                             </div>
                             
                         </div>

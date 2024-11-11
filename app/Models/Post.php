@@ -13,8 +13,12 @@ class Post extends Model
         
         'id'
     ];
+    protected $casts = [
+        'comment' => 'array', // Automatically cast 'tags' as an array
+    ];
     public function post(): BelongsTo
     {
         return $this->belongsTo(Credential::class, 'username', 'username');
     }
+
 }
