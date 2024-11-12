@@ -17,8 +17,5 @@ class Credential extends Authenticatable
         
         'id'
     ];
-    public function user(): HasMany
-    {
-        return $this->hasMany(Post::class, 'username', 'username');
-    }
+   
 }

@@ -48,7 +48,7 @@
                                 @csrf
                                 <button>Sign out</button>
                             </form>
-                           
+
                         </div>
                     </div>
 
@@ -122,18 +122,20 @@
                 <div class="post-list">
                     @foreach ($posts as $post)
                         <div class="post-detail">
-                            <b><p>{{ $post->username }}</p></b>
+                            <b>
+                                <p>{{ $post->username }}</p>
+                            </b>
                         </div>
                         <div class="post-detail">
                             <p>{{ $post->post_title }}</p>
-                            
+
                             <p>{{ $post->post_content }}</p>
                             <div class="interaction-button">
                                 <div class="like">
                                     <i class="fa-solid fa-circle-up"></i>
                                     <p>{{ $post->like }}</p>
                                 </div>
-                                
+
                                 <div class="dislike">
                                     <i class="fa-solid fa-circle-down"></i>
                                     <p>{{ $post->dislike }}</p>
@@ -143,17 +145,27 @@
                                     <p>{{ $post->share }}</p>
                                 </div>
                             </div>
-                           
+
                             <div class="comment-section">
                                 @foreach ($post->comment as $cmt)
-                                     <p> {{ $cmt['name'] }}</p>
-                                     <p> {{ $cmt['text'] }}</p>
+                                    <div class="comment-list">
+                                        <b>
+                                            <p> {{ $cmt['name'] }}</p>
+                                        </b>
+                                        <p> {{ $cmt['text'] }}</p>
+                                    </div>
                                 @endforeach
                             </div>
-                            
+                            <div class="add-comment-container">
+                                <form action="comment" method="post">
+                                    @csrf
+                                    <input name="comment" type="text">
+                                    <button type="submit">Send</button>
+                                </form>
+                            </div>
+
                         </div>
                         <hr>
-                       
                     @endforeach
                 </div>
             </div>

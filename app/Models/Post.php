@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
@@ -16,9 +17,14 @@ class Post extends Model
     protected $casts = [
         'comment' => 'array', // Automatically cast 'tags' as an array
     ];
-    public function post(): BelongsTo
+    // public function post(): BelongsTo
+    // {
+    //     return $this->belongsTo(Credential::class, 'username', 'username');
+    // }
+
+      public function comment(): HasMany
     {
-        return $this->belongsTo(Credential::class, 'username', 'username');
+        return $this->hasMany(Comment::class, 'post_id', 'post_id');
     }
 
 }
