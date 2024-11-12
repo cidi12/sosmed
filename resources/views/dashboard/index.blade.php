@@ -147,18 +147,27 @@
                             </div>
 
                             <div class="comment-section">
-                                @foreach ($post->comment as $cmt)
+                                {{-- @foreach ($post->comment as $cmt)
                                     <div class="comment-list">
                                         <b>
                                             <p> {{ $cmt['name'] }}</p>
                                         </b>
                                         <p> {{ $cmt['text'] }}</p>
                                     </div>
-                                @endforeach
+                                @endforeach --}}
+                              
+                                <div class="comment-list">
+                                    <b>
+                                        <p> {{ $post->username }}</p>
+                                    </b>
+                                    <p> {{ $post->comment }}</p>
+                                </div>
+                      
                             </div>
                             <div class="add-comment-container">
                                 <form action="comment" method="post">
                                     @csrf
+                                    <input name="post_id" value="{{ $post->id }}">
                                     <input name="comment" type="text">
                                     <button type="submit">Send</button>
                                 </form>

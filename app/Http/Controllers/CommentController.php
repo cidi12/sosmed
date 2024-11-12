@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -11,13 +12,17 @@ class CommentController extends Controller
     {
         $validate = $request->validate(
             [
-                'comment' => 'required|string'
+                'comment' => 'required|string',
+                'post_id' => 'required|string'
             ]
         );
         $comment = $validate['comment'];
-        Comment::insert(
-            [
+        $post_id = $validate['post_id'];
+        $username = Auth::guard('member')->user()->username;
+        Comment::create(
+            [   'username'=>$username,
                 'comment' => $comment,
+                'post_id' => $post_id,
                 
             ]
         );

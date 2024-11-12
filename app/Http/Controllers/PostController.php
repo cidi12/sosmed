@@ -26,7 +26,7 @@ class PostController extends Controller
         );
         $email = Auth::guard('member')->user()->email;
         $username = Auth::guard('member')->user()->username;
-        $user = Credential::where('email', $email)->first();
+        // $user = Credential::where('email', $email)->first();
        
         // $user->user()
         Post::create(
