@@ -120,10 +120,12 @@
                     </div>
                 </div>
                 <div class="post-list">
+
                     @foreach ($posts as $post)
                         <div class="post-detail">
                             <b>
                                 <p>{{ $post->username }}</p>
+
                             </b>
                         </div>
                         <div class="post-detail">
@@ -147,22 +149,15 @@
                             </div>
 
                             <div class="comment-section">
-                                {{-- @foreach ($post->comment as $cmt)
+                                @foreach ($post->comment as $cmt)
                                     <div class="comment-list">
                                         <b>
                                             <p> {{ $cmt['name'] }}</p>
                                         </b>
                                         <p> {{ $cmt['text'] }}</p>
                                     </div>
-                                @endforeach --}}
-                              
-                                <div class="comment-list">
-                                    <b>
-                                        <p> {{ $post->username }}</p>
-                                    </b>
-                                    <p> {{ $post->comment }}</p>
-                                </div>
-                      
+                                @endforeach
+                               
                             </div>
                             <div class="add-comment-container">
                                 <form action="comment" method="post">
@@ -176,6 +171,14 @@
                         </div>
                         <hr>
                     @endforeach
+                    {{-- @foreach ($comments as $comment)
+                    <div class="comment-list">
+                        <b>
+                            <p> {{ $comment->commenter }}</p>
+                        </b>
+                        <p> {{ $comment->comment }}</p>
+                    </div>
+                @endforeach --}}
                 </div>
             </div>
             <div class="right-section-body">

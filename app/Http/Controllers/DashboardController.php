@@ -12,10 +12,10 @@ class DashboardController extends Controller
     public function index()
     {
         $post = Post::inRandomOrder()->get();
-        $comment = DB::table('comments')
-        ->join('posts', 'comments.post_id', '=', 'posts.id')
-        ->select('comments.*', 'posts.id')
-        ->get();
-        return view('dashboard.index', ['posts' => $comment, 'comments' => $post]);
+        // $post = DB::table('comments')
+        // ->join('posts', 'comments.post_id', '=', 'posts.id')
+        // ->select('comments.*', 'posts.*')
+        // ->get();
+        return view('dashboard.index', ['posts' => $post]);
     }
 }

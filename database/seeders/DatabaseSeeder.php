@@ -23,8 +23,8 @@ class DatabaseSeeder extends Seeder
                 'post_content' => 'isi post 1',
                 'comment' => json_encode(
                     [
-                        ['name' => 'Laravel', 'text' => 'blue'],
-                        ['name' => 'PHP', 'text' => 'green'],
+                        ['name' => 'Laravel', 'text' => 'punya laravel', 'email'=>'abcd@gmail.com'],
+                        ['name' => 'PHP', 'text' => 'php king', 'email'=>'1234@gmail.com'],
                     ]
                 )
             ],
@@ -35,8 +35,8 @@ class DatabaseSeeder extends Seeder
                 'post_content' => 'isi post 2',
                 'comment' => json_encode(
                     [
-                        ['name' => 'ketupat', 'text' => 'blue'],
-                        ['name' => 'kumba', 'text' => 'green'],
+                        ['name' => 'ketupat', 'text' => 'ketupat balado', 'email'=>'7777@gmail.com'],
+                        ['name' => 'kumba', 'text' => 'bulukumba', 'email'=>'zzzz@gmail.com'],
                     ]
                 )
 
@@ -48,8 +48,8 @@ class DatabaseSeeder extends Seeder
                 'post_content' => 'isi post 3',
                 'comment' => json_encode(
                     [
-                        ['name' => 'tikus', 'text' => 'blue'],
-                        ['name' => 'kuda', 'text' => 'green'],
+                        ['name' => 'tikus', 'text' => 'tikus sabun', 'email'=>'gagagaga@gmail.com'],
+                        ['name' => 'kuda', 'text' => 'kuda juan', 'email'=>'0909090@gmail.com'],
                     ]
                 )
             ]
