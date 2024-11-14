@@ -20,14 +20,18 @@ class CommentController extends Controller
         $comment = $validate['comment'];
         $post_id = $validate['post_id'];
         $username = Auth::guard('member')->user()->username;
-       
+
         Comment::create(
-            [   'commenter'=>$username,
+            [
+                'commenter' => $username,
                 'comment' => $comment,
                 'post_id' => $post_id,
 
             ]
         );
+        $total_comment = Comment::where('post_id', $post_id)->count();
+        // dd($total_comment);
+        Post::where('id', $post_id)->update(['total_comment'=> $total_comment]);
        
         return redirect('dashboard.index');
     }
