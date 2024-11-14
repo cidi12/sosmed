@@ -120,8 +120,9 @@
                     </div>
                 </div>
                 <div class="post-list">
-
+                    
                     @foreach ($posts as $post)
+                   
                         <div class="post-detail">
                             <b>
                                 <p>{{ $post->username }}</p>
@@ -146,17 +147,18 @@
                                     <i class="fa-solid fa-share"></i>
                                     <p>{{ $post->share }}</p>
                                 </div>
+                                <p> {{ $post->total_comment }} komentar</p>
                             </div>
 
                             <div class="comment-section">
-                                @foreach ($post->comment as $cmt)
+                               
                                     <div class="comment-list">
                                         <b>
-                                            <p> {{ $cmt['name'] }}</p>
+                                            <p> {{ $post->total_comment }}</p>
                                         </b>
-                                        <p> {{ $cmt['text'] }}</p>
+                                        <p> </p>
                                     </div>
-                                @endforeach
+                             
                                
                             </div>
                             <div class="add-comment-container">

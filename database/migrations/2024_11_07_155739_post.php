@@ -17,10 +17,12 @@ return new class extends Migration
             $table->string('username');
             $table->string('post_title');
             $table->string('post_content');
-            $table->json('comment')->nullable();
-            $table->string('like')->default('0');
-            $table->string('dislike')->default('0');
-            $table->string('share')->default('0');
+            $table->string('post_comment')->nullable()->default('');
+            $table->bigInteger('total_comment')->default('0');
+            // $table->json('comment')->nullable();
+            $table->bigInteger('like')->default('0');
+            $table->bigInteger('dislike')->default('0');
+            $table->bigInteger('share')->default('0');
             $table->timestamps();
           
         });

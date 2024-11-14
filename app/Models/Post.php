@@ -22,9 +22,9 @@ class Post extends Model
     //     return $this->belongsTo(Credential::class, 'username', 'username');
     // }
 
-      public function comment(): HasMany
-    {
-        return $this->hasMany(Comment::class, 'post_id', 'post_id');
-    }
+    //   public function comment(): HasMany
+    // {
+    //     return $this->hasMany(Comment::class, 'post_id', 'post_id');
+    // }
 
 }
