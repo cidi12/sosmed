@@ -31,7 +31,7 @@ class CommentController extends Controller
         );
         $total_comment = Comment::where('post_id', $post_id)->count();
         // dd($total_comment);
-        Post::where('id', $post_id)->update(['total_comment'=> $total_comment]);
+        Post::where('id', $post_id)->update(['total_comment'=> $total_comment, 'post_comment'=> $comment, 'post_commenter'=>$username]);
        
         return redirect('dashboard.index');
     }

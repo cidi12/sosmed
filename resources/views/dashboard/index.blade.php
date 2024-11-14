@@ -120,9 +120,8 @@
                     </div>
                 </div>
                 <div class="post-list">
-                    
+
                     @foreach ($posts as $post)
-                   
                         <div class="post-detail">
                             <b>
                                 <p>{{ $post->username }}</p>
@@ -151,15 +150,15 @@
                             </div>
 
                             <div class="comment-section">
-                               
-                                    <div class="comment-list">
-                                        <b>
-                                            <p> {{ $post->total_comment }}</p>
-                                        </b>
-                                        <p> </p>
-                                    </div>
-                             
-                               
+
+                                <div class="comment-list">
+
+                                    <b><p> {{ $post->post_commenter }}</p></b>
+
+                                    <p>{{ $post->post_comment }} </p>
+                                </div>
+
+
                             </div>
                             <div class="add-comment-container">
                                 <form action="comment" method="post">
