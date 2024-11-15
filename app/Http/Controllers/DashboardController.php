@@ -11,15 +11,18 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $post = Post::inRandomOrder()->get();
+        // $post = Post::inRandomOrder()->get();
         
-//         SELECT posts.*, comments.* 
-// FROM `posts`
-// INNER JOIN comments ON  posts.id=comments.post_id;
-        // $comment = DB::table('posts')
-        // ->join('comments', 'comments.post_id', '=', 'posts.id')
-        // ->select('comments.*', 'posts.*')
-        // ->get();
+        $postOrder = session('post_order', Post::pluck('id')->shuffle()->toArray());
+
+        // Store the order in the session
+        session(['post_order' => $postOrder]);
+    
+        // Fetch posts in the randomized order
+        $post = Post::whereIn('id', $postOrder)
+                     ->orderByRaw("FIELD(id, " . implode(',', $postOrder) . ")")
+                     ->get();
+    
         return view('dashboard.index', ['posts' => $post]);
     }
 }

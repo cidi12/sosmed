@@ -111,7 +111,6 @@
                             <img src="{{ asset('img/profile.png') }}">
                         </div>
                         <div class="animated-border"></div>
-
                     </div>
                     <div>
                         <a href="post"><button>Tuliskan sesuatu yang menarik !</button></a>
@@ -120,25 +119,21 @@
                         <i class="fa-regular fa-image fa-2x"></i>
                     </div>
                 </div>
-                <div class="post-list" >
-
+                <div class="post-list">
                     @foreach ($posts as $post)
                         <div class="post-detail">
                             <b>
                                 <p>{{ $post->username }}</p>
-
                             </b>
                         </div>
-                        <div class="post-detail" >
+                        <div class="post-detail">
                             <p>{{ $post->post_title }}</p>
-
                             <p>{{ $post->post_content }}</p>
                             <div class="interaction-button">
                                 <div class="like">
                                     <i class="fa-solid fa-circle-up"></i>
                                     <p>{{ $post->like }}</p>
                                 </div>
-
                                 <div class="dislike">
                                     <i class="fa-solid fa-circle-down"></i>
                                     <p>{{ $post->dislike }}</p>
@@ -149,19 +144,14 @@
                                 </div>
                                 <p> {{ $post->total_comment }} komentar</p>
                             </div>
-
                             <div class="comment-section">
-
+                                <p>komentar</p>
                                 <div class="comment-list">
-
                                     <b>
                                         <p> {{ $post->post_commenter }}</p>
                                     </b>
-
                                     <p>{{ $post->post_comment }} </p>
                                 </div>
-
-
                             </div>
                             <div class="add-comment-container">
                                 <form hx-post="comment" hx-target="#post-detail">
@@ -171,21 +161,11 @@
                                     <button type="submit">Send</button>
                                 </form>
                             </div>
-
                         </div>
                         <hr>
                     @endforeach
-                   
-                    {{-- @foreach ($comments as $comment)
-                    <div class="comment-list">
-                        <b>
-                            <p> {{ $comment->commenter }}</p>
-                        </b>
-                        <p> {{ $comment->comment }}</p>
-                    </div>
-                @endforeach --}}
-                </div> 
-             
+                </div>
+
             </div>
             <div class="right-section-body">
                 <div class="upper-right-container">

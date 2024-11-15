@@ -32,7 +32,12 @@ class CommentController extends Controller
         $total_comment = Comment::where('post_id', $post_id)->count();
         // dd($total_comment);
         Post::where('id', $post_id)->update(['total_comment'=> $total_comment, 'post_comment'=> $comment, 'post_commenter'=>$username]);
-        $post = Post::all();
+        
+        $postOrder = session('post_order', Post::pluck('id')->shuffle()->toArray());
+        session(['post_order' => $postOrder]);
+        $post = Post::whereIn('id', $postOrder)
+                     ->orderByRaw("FIELD(id, " . implode(',', $postOrder) . ")")
+                     ->get();
         return view('partials.comment',['posts'=>$post]);
     }
 }

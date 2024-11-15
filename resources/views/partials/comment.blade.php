@@ -44,7 +44,7 @@
             </div>
 
             <div class="comment-section">
-
+                <p>Komentar</p>
                 <div class="comment-list">
 
                     <b>
