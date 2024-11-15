@@ -104,7 +104,7 @@
                 </div>
 
             </div>
-            <div class="mid-section-body">
+            <div class="mid-section-body" id="post-detail">
                 <div class="post-status-container">
                     <div class="circle-container">
                         <div class="image-container">
@@ -120,7 +120,7 @@
                         <i class="fa-regular fa-image fa-2x"></i>
                     </div>
                 </div>
-                <div class="post-list" id="post-detail">
+                <div class="post-list" >
 
                     @foreach ($posts as $post)
                         <div class="post-detail">

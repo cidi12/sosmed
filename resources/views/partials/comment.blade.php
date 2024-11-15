@@ -1,4 +1,19 @@
-<div class="post-list" id="post-detail">
+<div class="post-status-container">
+    <div class="circle-container">
+        <div class="image-container">
+            <img src="{{ asset('img/profile.png') }}">
+        </div>
+        <div class="animated-border"></div>
+
+    </div>
+    <div>
+        <a href="post"><button>Tuliskan sesuatu yang menarik !</button></a>
+    </div>
+    <div>
+        <i class="fa-regular fa-image fa-2x"></i>
+    </div>
+</div>
+<div class="post-list">
 
     @foreach ($posts as $post)
         <div class="post-detail">
