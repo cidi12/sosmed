@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
         <link rel="stylesheet" href="{{ asset('icon/css/all.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/mediaquerydashboard.css') }}">
+        <script src="{{ asset('js/htmx.min.js') }}"></script>
         <title>Dashboard</title>
     </head>
 
@@ -119,7 +120,7 @@
                         <i class="fa-regular fa-image fa-2x"></i>
                     </div>
                 </div>
-                <div class="post-list">
+                <div class="post-list" id="post-detail">
 
                     @foreach ($posts as $post)
                         <div class="post-detail">
@@ -128,7 +129,7 @@
 
                             </b>
                         </div>
-                        <div class="post-detail">
+                        <div class="post-detail" >
                             <p>{{ $post->post_title }}</p>
 
                             <p>{{ $post->post_content }}</p>
@@ -153,7 +154,9 @@
 
                                 <div class="comment-list">
 
-                                    <b><p> {{ $post->post_commenter }}</p></b>
+                                    <b>
+                                        <p> {{ $post->post_commenter }}</p>
+                                    </b>
 
                                     <p>{{ $post->post_comment }} </p>
                                 </div>
@@ -161,7 +164,7 @@
 
                             </div>
                             <div class="add-comment-container">
-                                <form action="comment" method="post">
+                                <form hx-post="comment" hx-target="#post-detail">
                                     @csrf
                                     <input name="post_id" value="{{ $post->id }}">
                                     <input name="comment" type="text">
@@ -172,6 +175,7 @@
                         </div>
                         <hr>
                     @endforeach
+                   
                     {{-- @foreach ($comments as $comment)
                     <div class="comment-list">
                         <b>
@@ -180,7 +184,8 @@
                         <p> {{ $comment->comment }}</p>
                     </div>
                 @endforeach --}}
-                </div>
+                </div> 
+             
             </div>
             <div class="right-section-body">
                 <div class="upper-right-container">
