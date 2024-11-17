@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // $post = Post::inRandomOrder()->get();
+        $post = Post::inRandomOrder()->get();
         
         // $postOrder = session('post_order', Post::pluck('id')->shuffle()->toArray());
 
@@ -23,12 +23,12 @@ class DashboardController extends Controller
         //              ->orderByRaw("FIELD(id, " . implode(',', $postOrder) . ")")
         //              ->get();
             // Fetch all post IDs and shuffle them
-    $postOrder = Post::pluck('id')->shuffle()->toArray();
+    // $postOrder = Post::pluck('id')->shuffle()->toArray();
 
-    // Fetch posts in the shuffled order
-    $post = Post::whereIn('id', $postOrder)
-                 ->orderByRaw("FIELD(id, " . implode(',', $postOrder) . ")")
-                 ->get();
+    // // Fetch posts in the shuffled order
+    // $post = Post::whereIn('id', $postOrder)
+    //              ->orderByRaw("FIELD(id, " . implode(',', $postOrder) . ")")
+    //              ->get();
     
         return view('dashboard.index', ['posts' => $post]);
     }
