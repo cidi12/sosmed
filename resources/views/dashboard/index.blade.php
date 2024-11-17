@@ -141,12 +141,15 @@
                                         <p>{{ $post->likes }}</p>
                                     </div>
                                     <div class="dislike">
-                                        <i class="fa-solid fa-circle-down"></i>
-                                        <p>{{ $post->dislike }}</p>
+                                        <form hx-post="dislike/{{ $post->id }}" hx-target="#interaction-detail-{{ $post->id }}">
+                                            @csrf
+                                            <button type="submit"> <i class="fa-solid fa-circle-down"></i></i></button>
+                                        </form>
+                                        <p>{{ $post->dislikes }}</p>
                                     </div>
                                     <div class="share">
                                         <i class="fa-solid fa-share"></i>
-                                        <p>{{ $post->share }}</p>
+                                        <p>{{ $post->shares }}</p>
                                     </div>
                                     <p> {{ $post->total_comment }} komentar</p>
                                 </div>
