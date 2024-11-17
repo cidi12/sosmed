@@ -136,14 +136,15 @@
                                         <form hx-post="like/{{ $post->id }}" hx-target="#interaction-detail-{{ $post->id }}">
                                             @csrf
                                           
-                                            <button type="submit"><i class="fa-solid fa-circle-up"></i></button>
+                                            <button type="submit"><i class="fa-solid fa-thumbs-up fa-2x"></i></button>
+                                            
                                         </form>
                                         <p>{{ $post->likes }}</p>
                                     </div>
                                     <div class="dislike">
                                         <form hx-post="dislike/{{ $post->id }}" hx-target="#interaction-detail-{{ $post->id }}">
                                             @csrf
-                                            <button type="submit"> <i class="fa-solid fa-circle-down"></i></i></button>
+                                            <button type="submit"> <i class="fa-solid fa-thumbs-down fa-2x"></i></button>
                                         </form>
                                         <p>{{ $post->dislikes }}</p>
                                     </div>
