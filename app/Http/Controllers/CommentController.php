@@ -9,16 +9,16 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function comment(Request $request)
+    public function comment(Request $request, $id)
     {
         $validate = $request->validate(
             [
                 'comment' => 'required|string',
-                'post_id' => 'required|string'
+                // 'post_id' => 'required|string'
             ]
         );
         $comment = $validate['comment'];
-        $post_id = $validate['post_id'];
+        $post_id = $id;
         $username = Auth::guard('member')->user()->username;
 
         Comment::create(

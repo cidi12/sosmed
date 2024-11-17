@@ -155,9 +155,9 @@
                                 </div>
                             </div>
                             <div class="add-comment-container">
-                                <form hx-post="comment" hx-target="#comment-detail-{{ $post->id }}">
+                                <form hx-post="comment/{{ $post->id }}" hx-target="#comment-detail-{{ $post->id }}">
                                     @csrf
-                                    <input name="post_id" value="{{ $post->id }}">
+                                    {{-- <input name="post_id" value="{{ $post->id }}"> --}}
                                     <input name="comment" type="text">
                                     <button type="submit">Send</button>
                                 </form>
