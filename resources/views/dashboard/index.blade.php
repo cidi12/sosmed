@@ -131,10 +131,14 @@
                             <p>{{ $post->post_content }}</p>
                             
                             <div class="comment-section" id="comment-detail-{{ $post->id }}">
-                                <div class="interaction-button">
+                                <div class="interaction-button" id="interaction-detail-{{ $post->id }}">
                                     <div class="like">
-                                        <i class="fa-solid fa-circle-up"></i>
-                                        <p>{{ $post->like }}</p>
+                                        <form hx-post="like/{{ $post->id }}" hx-target="#interaction-detail-{{ $post->id }}">
+                                            @csrf
+                                          
+                                            <button type="submit"><i class="fa-solid fa-circle-up"></i></button>
+                                        </form>
+                                        <p>{{ $post->likes }}</p>
                                     </div>
                                     <div class="dislike">
                                         <i class="fa-solid fa-circle-down"></i>

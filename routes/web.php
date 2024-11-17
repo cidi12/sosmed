@@ -28,5 +28,6 @@ Route::post('login',[CredentialController::class, 'login'])->name('login');
 Route::post('logout',[CredentialController::class, 'logout'])->name('logout');
 Route::post('post',[PostController::class, 'post'])->name('post');
 Route::post('comment/{id}',[CommentController::class, 'comment'])->name('comment');
+Route::post('like/{id}',[CommentController::class, 'like'])->name('like');
 Route::get('/{any}', [CredentialController::class, 'index'])
     ->where('any', '.*')->middleware('guest:member');

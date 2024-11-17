@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Interaction;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,5 +36,23 @@ class CommentController extends Controller
         
         $post = Post::where('id', $post_id)->get();
         return view('partials.comment',['posts'=>$post]);
+    }
+    public function like($id){
+        $post_id =  $id;
+        $username = Auth::guard('member')->user()->username;
+        Interaction::create([
+            'commenter' => $username,
+            'post_id'=>$post_id,
+            'likes'=>'yes',
+            'dislikes'=>'no'
+            ]
+        );
+        $total_likes = Interaction::where('post_id', $post_id)->count();
+        
+        Post::where('id', $post_id)->update(['likes'=> $total_likes]);
+
+        $post = Post::where('id', $post_id)->get();
+        return view('partials.interaction',['posts'=>$post]);
+
     }
 }

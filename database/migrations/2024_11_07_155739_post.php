@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('post_comment')->nullable()->default('');
             $table->bigInteger('total_comment')->default('0');
             // $table->json('comment')->nullable();
-            $table->bigInteger('like')->default('0');
-            $table->bigInteger('dislike')->default('0');
-            $table->bigInteger('share')->default('0');
+            $table->bigInteger('likes')->default('0');
+            $table->bigInteger('dislikes')->default('0');
+            $table->bigInteger('shares')->default('0');
             $table->timestamps();
           
         });
