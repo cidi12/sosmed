@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InteractionController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,7 @@ Route::post('login',[CredentialController::class, 'login'])->name('login');
 Route::post('logout',[CredentialController::class, 'logout'])->name('logout');
 Route::post('post',[PostController::class, 'post'])->name('post');
 Route::post('comment/{id}',[CommentController::class, 'comment'])->name('comment');
-Route::post('like/{id}',[CommentController::class, 'like'])->name('like');
-Route::post('dislike/{id}',[CommentController::class, 'dislike'])->name('dislike');
+Route::post('like/{id}',[InteractionController::class, 'like'])->name('like');
+Route::post('dislike/{id}',[InteractionController::class, 'dislike'])->name('dislike');
 Route::get('/{any}', [CredentialController::class, 'index'])
     ->where('any', '.*')->middleware('guest:member');

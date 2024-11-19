@@ -4,32 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Interaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $post = Post::inRandomOrder()->get();
-        
-        // $postOrder = session('post_order', Post::pluck('id')->shuffle()->toArray());
-
-        // // Store the order in the session
-        // session(['post_order' => $postOrder]);
+        $post = Post::select('id','username','post_title','post_content','post_commenter','post_comment','total_comment','likes','dislikes','shares')->inRandomOrder()->get();
+       
     
-        // // Fetch posts in the randomized order
-        // $post = Post::whereIn('id', $postOrder)
-        //              ->orderByRaw("FIELD(id, " . implode(',', $postOrder) . ")")
-        //              ->get();
-            // Fetch all post IDs and shuffle them
-    // $postOrder = Post::pluck('id')->shuffle()->toArray();
+    $username = Auth::guard('member')->user()->username;
 
-    // // Fetch posts in the shuffled order
-    // $post = Post::whereIn('id', $postOrder)
-    //              ->orderByRaw("FIELD(id, " . implode(',', $postOrder) . ")")
-    //              ->get();
-    
-        return view('dashboard.index', ['posts' => $post]);
+    $likebtn = Interaction::select('post_id','commenter','likes','dislikes','shares')->where('commenter', $username)->get();
+    // $likebtn = Interaction::all();
+   
+    // dd($likebtn2);
+        return view('dashboard.index', ['posts' => $post,'likes'=>$likebtn]);
     }
 }
