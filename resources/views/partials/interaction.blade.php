@@ -14,7 +14,13 @@
     <div class="dislike">
         <form hx-post="dislike/{{ $post->id }}" hx-target="#interaction-detail-{{ $post->id }}">
             @csrf
-            <button type="submit"> <i class="fa-regular fa-thumbs-down fa-2x"></i></i></button>
+            @if ($like->dislikes == 'false' )
+            <button type="submit"><i class="fa-regular fa-thumbs-down fa-2x"></i></button>
+            @else
+            <button type="submit"><i class="fa-solid fa-thumbs-down fa-2x"></i></button>
+            @endif
+            {{-- <button type="submit"><i
+                class="fa-regular fa-thumbs-down fa-2x"></i></button> --}}
         </form>
         <p>{{ $post->dislikes }}</p>
     </div>

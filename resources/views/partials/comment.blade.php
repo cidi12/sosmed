@@ -36,8 +36,17 @@
         <form hx-post="dislike/{{ $post->id }}"
             hx-target="#interaction-detail-{{ $post->id }}">
             @csrf
-            <button type="submit"> <i
-                    class="fa-regular fa-thumbs-down fa-2x"></i></button>
+            @foreach ($likes as $like)
+            @if ($like->dislikes == 'false' && $like->post_id == $post->id)
+                <button type="submit" class="tesss"><i
+                        class="fa-regular fa-thumbs-down fa-2x"></i></button>
+            @elseif ($like->dislikes == 'true' && $like->post_id == $post->id)
+                <button type="submit" class="tesss"><i
+                        class="fa-solid fa-thumbs-down fa-2x"></i></button>
+            @endif
+        @endforeach
+        <button type="submit"><i
+                class="fa-regular fa-thumbs-down fa-2x"></i></button>
         </form>
         <p>{{ $post->dislikes }}</p>
     </div>
