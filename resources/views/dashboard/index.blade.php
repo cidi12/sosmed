@@ -25,9 +25,9 @@
 
                 </div>
                 <div class="mid-section-nav">
-                    <i class="fa fa-home fa-2x" id="beranda" onmouseover="hoverFunction()" aria-hidden="true"><a
-                            href=""></a><span class="popuptext" id="myPopup">Beranda</span></i>
-
+                    <a  href="home"><i class="fa fa-home fa-2x" id="beranda" onmouseover="hoverFunction()"
+                            aria-hidden="true"><span class="popuptext" id="myPopup">Beranda</span></i>
+                    </a>
                     <i class="fa fa-users fa-2x" id="komunitas" onmouseover="hoverFunction2()" aria-hidden="true"><a
                             href=""></a><span class="popuptext" id="myPopup2">Komunitas</span></i>
                     <i class="fa fa-comments fa-2x" id="pesan" onmouseover="hoverFunction4()" aria-hidden="true"><a
@@ -84,9 +84,9 @@
                     <hr>
                     <div class="trending-list">
                         @foreach ($trendings as $trending)
-                        <a href="">{{ $trending->post_title }} <i class="fa-solid fa-fire"></i></a>
+                            <a href="">{{ $trending->post_title }} <i class="fa-solid fa-fire"></i></a>
                         @endforeach
-                     
+
                     </div>
                     <br>
                     <b>Pintasan Grup</b>
