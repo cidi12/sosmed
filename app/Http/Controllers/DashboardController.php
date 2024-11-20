@@ -14,7 +14,7 @@ class DashboardController extends Controller
     public function index()
     {
         $post = Post::select('id', 'username', 'post_title', 'post_content', 'post_commenter', 'post_comment', 'total_comment', 'likes', 'dislikes', 'shares')->inRandomOrder()->get();
-        $trending = Post::select('id', 'post_title')->limit(5)->get();
+        $trending = Post::select('id', 'post_title')->where('updated_at', now())->limit(5)->get();
 
         $username = Auth::guard('member')->user()->username;
 

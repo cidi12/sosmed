@@ -20,10 +20,10 @@
             @endforeach --}}
             @foreach ($likes as $like)
                 @if ($like->likes == 'false' && $like->post_id == $post->id)
-                    <button type="submit" class="tesss"><i
+                    <button type="submit" class="interaction-button-detail"><i
                             class="fa-regular fa-thumbs-up fa-2x"></i></button>
                 @elseif ($like->likes == 'true' && $like->post_id == $post->id)
-                    <button type="submit" class="tesss"><i
+                    <button type="submit" class="interaction-button-detail"><i
                             class="fa-solid fa-thumbs-up fa-2x"></i></button>
                 @endif
             @endforeach
@@ -38,10 +38,10 @@
             @csrf
             @foreach ($likes as $like)
             @if ($like->dislikes == 'false' && $like->post_id == $post->id)
-                <button type="submit" class="tesss"><i
+                <button type="submit" class="interaction-button-detail"><i
                         class="fa-regular fa-thumbs-down fa-2x"></i></button>
             @elseif ($like->dislikes == 'true' && $like->post_id == $post->id)
-                <button type="submit" class="tesss"><i
+                <button type="submit" class="interaction-button-detail"><i
                         class="fa-solid fa-thumbs-down fa-2x"></i></button>
             @endif
         @endforeach
