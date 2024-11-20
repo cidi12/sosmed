@@ -83,13 +83,10 @@
                     <b>Trending hari ini</b>
                     <hr>
                     <div class="trending-list">
-                        <a href="">Kucing nangis</a>
-                        <a href="">Presiden baru</a>
-                        <a href="">Kurikulum baru</a>
-                        <a href="">Pilkada damai</a>
-                        <a href="">Garuda biru</a>
-                        <a href="">Makan gratis</a>
-                        <a href="">Selimutnya mana wo</a>
+                        @foreach ($trendings as $trending)
+                        <a href="">{{ $trending->post_title }} <i class="fa-solid fa-fire"></i></a>
+                        @endforeach
+                     
                     </div>
                     <br>
                     <b>Pintasan Grup</b>
