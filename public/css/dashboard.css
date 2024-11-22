@@ -21,6 +21,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: fit-content;
 }
 /* NAVBAR */
 nav {
@@ -269,6 +270,7 @@ main {
     position: fixed;
     background-color: #fff;
     top: 75px;
+    right: 0;
     transition: top 0.7s;
     z-index: 2;
 }

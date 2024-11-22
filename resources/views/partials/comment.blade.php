@@ -30,6 +30,7 @@
             <button type="submit"><i
                     class="fa-regular fa-thumbs-up fa-2x"></i></button>
         </form>
+        
         <p>{{ $post->likes }}</p>
     </div>
     <div class="dislike">
