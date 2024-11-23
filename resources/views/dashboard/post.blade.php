@@ -34,24 +34,25 @@
                             href=""></a><span class="popuptext" id="myPopup4">Pesan</span></i>
                     <i class="fa fa-bell fa-2x" id="notifikasi" onmouseover="hoverFunction5()" aria-hidden="true"><a
                             href=""></a><span class="popuptext" id="myPopup5">Notifikasi</span></i>
-                    <div class="hamburger-menu">
+                    <div class="hamburger-menu-container">
                         <button id="mobile-menu"> <i class="fa fa-bars fa-2x"></i></button>
                         <button id="mobile-menu-close"> <i class="fa fa-bars fa-2x"></i></button>
-                        <div class="hamburger-items" id="hamburger-items">
-                            <div class="searchbar-container">
-                                <label for="searchbar"><i class="fa fa-search"></i></label>
-                                <input type="search" name="" id="searchbar" placeholder="Cari di Fesnuk">
-                            </div>
-                            <a href="">Profile</a>
-                            <a href="">Friend list</a>
-                            <a href="">Market Place</a>
-                            <form action="logout" method="POST">
-                                @csrf
-                                <button>Sign out</button>
-                            </form>
-
-                        </div>
+                        
                     </div>
+
+                </div>
+                <div class="hamburger-items" id="hamburger-items">
+                    <div class="searchbar-container">
+                        <label for="searchbar"><i class="fa fa-search"></i></label>
+                        <input type="search" name="" id="searchbar" placeholder="Cari di Fesnuk">
+                    </div>
+                    <a href="">Profile</a>
+                    <a href="">Friend list</a>
+                    <a href="">Market Place</a>
+                    <form action="logout" method="POST">
+                        @csrf
+                        <button>Sign out</button>
+                    </form>
 
                 </div>
                 <div class="right-section-nav">
@@ -59,13 +60,31 @@
                         aria-hidden="true"><a href=""></a><span class="popuptext"
                             id="myPopup3">Marketplace</span></i>
 
-                    <div class="circle-container">
-                        <div class="image-container">
-                            <img src="{{ asset('img/profile.png') }}">
-                        </div>
-                        <div class="animated-border"></div>
-
-                    </div>
+                            <button id="web-menu">
+                                <div class="circle-container">
+                                    <div class="image-container">
+                                        <img src="{{ asset('img/profile.png') }}">
+        
+                                    </div>
+                                    <div class="animated-border">
+        
+                                    </div>
+        
+                                </div>
+                            </button>
+                            <button id="web-menu-close">
+                                <div class="circle-container">
+                                    <div class="image-container">
+                                        <img src="{{ asset('img/profile.png') }}">
+        
+                                    </div>
+                                    <div class="animated-border">
+        
+                                    </div>
+        
+                                </div>
+                            </button>
+        
 
                     {{-- <form action="logout" method="post">
                     @csrf
@@ -84,27 +103,14 @@
                 </div>
             </div>
             <div class="mid-section-body" id="post-detail">
-                <div class="post-status-container">
-                    <div class="circle-container">
-                        <div class="image-container">
-                            <img src="{{ asset('img/profile.png') }}">
-                        </div>
-                        <div class="animated-border"></div>
-                    </div>
-                    <div>
-                        <a href="post"><button>Tuliskan sesuatu yang menarik !</button></a>
-                    </div>
-                    <div>
-                        <i class="fa-regular fa-image fa-2x"></i>
-                    </div>
-                </div>
+                
                 <div class="create-post-container">
                     <form action="post" method="POST">
                         @csrf
-                       
+                       <label for="post-content">Tuliskan Ceritamu!</label>
                             <input type="text" name="post-title" placeholder="Judul Postingan">
-                            <label for="post-content">Tuliskan Ceritamu!</label>
-                            <textarea name="post-content" id="" cols="50" rows="10"></textarea>
+                            
+                            <textarea name="post-content" id="post-content" cols="50" rows="10"></textarea>
                             <button type="submit">Post</button>
                      
 

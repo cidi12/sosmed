@@ -56,6 +56,9 @@ function hidePopupOutside5() {
 // hamburger menu 
 const menuToggle = document.getElementById("mobile-menu");
 const menuToggle2 = document.getElementById("mobile-menu-close");
+
+const menuToggleWeb = document.getElementById("web-menu");
+const menuToggleWeb2 = document.getElementById("web-menu-close");
 //   Toggle navbar when menuToggle is clicked
 menuToggle.addEventListener("click", function () {
     // navbar.classList.toggle('active');
@@ -66,7 +69,14 @@ menuToggle.addEventListener("click", function () {
     menuToggle2.style.display = 'block'
 });
 
-
+menuToggleWeb.addEventListener("click", function () {
+    // navbar.classList.toggle('active');
+    var sidebar = document.getElementById("hamburger-items");
+    // sidebar.classList.toggle("show");
+    sidebar.style.display = 'flex'
+    menuToggleWeb.style.display = 'none'
+    menuToggleWeb2.style.display = 'block'
+});
 
 //   Toggle navbar when menuToggle is clicked
 menuToggle2.addEventListener("click", function () {
@@ -76,6 +86,15 @@ menuToggle2.addEventListener("click", function () {
     sidebar2.style.display = 'none'
      menuToggle.style.display = 'block'
     menuToggle2.style.display = 'none'
+
+});
+menuToggleWeb2.addEventListener("click", function () {
+    // navbar.classList.toggle('active');
+    var sidebar2 = document.getElementById("hamburger-items");
+    // sidebar.classList.toggle("show");
+    sidebar2.style.display = 'none'
+     menuToggleWeb.style.display = 'block'
+    menuToggleWeb2.style.display = 'none'
 
 });
 

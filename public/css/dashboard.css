@@ -17,7 +17,7 @@ button {
     transform: scale(0.9);
 }
 body {
-    background-color: #e8e7e7;
+    background-color: #fdefef;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -194,7 +194,7 @@ nav {
         transform: scale(1.1);
     }
 }
-.hamburger-menu {
+.hamburger-menu-container {
     display: none;
 }
 .hamburger-items {
@@ -205,6 +205,33 @@ nav {
 .hamburger-items a {
     text-decoration: none;
 }
+.hamburger-menu {
+    display: block;
+}
+.hamburger-menu-container button {
+    width: 100%;
+    border: none;
+   
+}
+.hamburger-items {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 6px 8px -4px;
+    padding: 30px 17px 10px 0;
+    width: 100%;
+    margin-top: 25px;
+    gap: 15px;
+}
+#web-menu-close {
+    display: none;
+}
+.hamburger-items .searchbar-container {
+    display: none;
+}
 /* NAVBAR END */
 
 /* MAIN SECTION */
@@ -213,7 +240,7 @@ main {
     grid-template-columns: 20% auto 20%;
     gap: 30px;
     margin-top: 80px;
-    height: 1200px;
+    /* height: 1200px; */
     /* border: solid red 1px; */
     padding: 10px;
     width: 95%;
@@ -256,8 +283,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid red 1px;
-    padding: 10px;
+    /* border: solid red 1px; */
+    /* padding: 10px; */
 }
 .post-status-container {
     display: flex;
@@ -284,16 +311,20 @@ main {
     border: solid purple 0.7px;
 }
 .post-list {
-    padding: 0 0 0 10px;
+    /* padding: 10px 0 0 15px; */
     display: flex;
     flex-direction: column;
     gap: 10px;
     word-break: break-all;
     /* min-width: 100%; */
     width: 100%;
+    background-color: #b5b4b3;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.5) 0 0 9px 3px;
 }
 .post-detail {
-    /* border: solid blue 1px; */
+    background-color: #fff;
+    padding: 15px
 }
 .post-detail img {
     width: 200px;
@@ -341,7 +372,7 @@ main {
   align-items: center;
   width: 100%;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: -50px;
   height: 100%;
 }
 .create-post-container form input {

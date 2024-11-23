@@ -52,3 +52,4 @@
          <p>{{ $post->post_comment }} </p>
      </div>
  @endforeach
+
