@@ -15,7 +15,9 @@
     <body>
 
         <header>
+            
             <nav>
+                
                 <div class="left-section-nav">
                     <img src="{{ asset('img/logo.jpg') }}">
                     <div class="searchbar-container">
@@ -38,23 +40,9 @@
                         <button id="mobile-menu"> <i class="fa fa-bars fa-2x"></i></button>
                         <button id="mobile-menu-close"> <i class="fa fa-bars fa-2x"></i></button>
                     </div>
+                    
                 </div>
-                <div class="hamburger-menu">
-                    <div class="hamburger-items" id="hamburger-items">
-                        <div class="searchbar-container">
-                            <label for="searchbar"><i class="fa fa-search"></i></label>
-                            <input type="search" name="" id="searchbar" placeholder="Cari di Fesnuk">
-                        </div>
-                        <a href="">Profile</a>
-                        <a href="">Friend list</a>
-                        <a href="">Market Place</a>
-                        <form action="logout" method="POST">
-                            @csrf
-                            <button>Sign out</button>
-                        </form>
-
-                    </div>
-                </div>
+                
                 <div class="right-section-nav">
                     <i class="fa fa-shopping-bag fa-2x" id="marketplace" onmouseover="hoverFunction3()"
                         aria-hidden="true"><a href=""></a><span class="popuptext"
@@ -84,18 +72,33 @@
                         </div>
                     </button>
 
-
                     {{-- <form action="logout" method="post">
                     @csrf
                      <button type="submit" >Log out</button>
                 </form> --}}
                 </div>
-
-
-
+                
             </nav>
+            <div class="hamburger-menu">
+                <div class="hamburger-items" id="hamburger-items">
+                    <div class="searchbar-container">
+                        <label for="searchbar"><i class="fa fa-search"></i></label>
+                        <input type="search" name="" id="searchbar" placeholder="Cari di Fesnuk">
+                    </div>
+                    <a href="">Profile</a>
+                    <a href="">Friend list</a>
+                    <a href="">Market Place</a>
+                    <form action="logout" method="POST">
+                        @csrf
+                        <button>Sign out</button>
+                    </form>
+
+                </div>
+            </div>
         </header>
+        
         <main>
+            
             <div class="left-section-body">
                 <div class="upper-left-container">
                     <b>Trending hari ini</b>
@@ -121,6 +124,7 @@
                 </div>
 
             </div>
+            
             <div class="mid-section-body" id="post-detail">
                 <div class="post-status-container">
                     <div class="circle-container">

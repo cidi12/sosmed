@@ -217,13 +217,14 @@ nav {
     display: none;
     flex-direction: column;
     align-items: flex-end;
-    position: absolute;
+    position: fixed;
     right: 0;
     background-color: white;
     box-shadow: rgba(99, 99, 99, 0.3) 0px 6px 8px -4px;
     padding: 30px 17px 10px 0;
     width: 100%;
-    margin-top: 25px;
+    margin-top: 75px;
+    z-index: 999;
     gap: 15px;
 }
 #web-menu-close {
