@@ -1,6 +1,8 @@
 
 @media  (max-width : 999px) {
-  
+    body {
+        width: fit-content;
+    }
     .mid-section-nav {
         display: flex;
         justify-content: space-between;
