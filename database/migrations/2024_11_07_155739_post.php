@@ -24,6 +24,7 @@ return new class extends Migration
             $table->bigInteger('likes')->default('0');
             $table->bigInteger('dislikes')->default('0');
             $table->bigInteger('shares')->default('0');
+            $table->bigInteger('merit')->default('0');
             $table->timestamps();
           
         });

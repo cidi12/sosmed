@@ -25,7 +25,7 @@
 
                 </div>
                 <div class="mid-section-nav">
-                    <a  href="home"><i class="fa fa-home fa-2x" id="beranda" onmouseover="hoverFunction()"
+                    <a href="home"><i class="fa fa-home fa-2x" id="beranda" onmouseover="hoverFunction()"
                             aria-hidden="true"><span class="popuptext" id="myPopup">Beranda</span></i>
                     </a>
                     <i class="fa fa-users fa-2x" id="komunitas" onmouseover="hoverFunction2()" aria-hidden="true"><a
@@ -84,7 +84,9 @@
                     <hr>
                     <div class="trending-list">
                         @foreach ($trendings as $trending)
-                            <a href="">{{ $trending->post_title }} <i class="fa-solid fa-fire"></i></a>
+                            @if ($trending->merit > 15)
+                                <a href="">{{ $trending->post_title }} <i class="fa-solid fa-fire"></i></a>
+                            @endif
                         @endforeach
 
                     </div>
@@ -203,7 +205,6 @@
                                 </form>
                             </div>
                         </div>
-                       
                     @endforeach
                 </div>
 

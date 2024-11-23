@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Interaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class InteractionController extends Controller
@@ -14,14 +15,15 @@ class InteractionController extends Controller
         $post_id =  $id;
         $username = Auth::guard('member')->user()->username;
         $record = Interaction::where('commenter', $username)->where('post_id', $post_id);
+        $currentDate = now()->toDateString();
         if ($record->exists()) {
             if ($record->where('likes', 'false')->exists()) {
-                Interaction::where('post_id', $post_id)->where('likes', 'false')->update(['likes' => 'true']);
+                Interaction::where('post_id', $post_id)->where('likes', 'false')->where('commenter',$username)->update(['updated_at'=>$currentDate,'likes' => 'true']);
             } else if ($record->where('likes', 'true')) {
-                Interaction::where('post_id', $post_id)->where('likes', 'true')->update(['likes' => 'false']);
+                Interaction::where('post_id', $post_id)->where('likes', 'true')->where('commenter',$username)->update(['updated_at'=>$currentDate,'likes' => 'false']);
             }
             $total_likes = Interaction::where('post_id', $post_id)->where('likes', 'true')->count();
-            Post::where('id', $post_id)->update(['likes' => $total_likes]);
+            Post::where('id', $post_id)->update(['updated_at'=>$currentDate,'likes' => $total_likes, 'merit'=> DB::raw('(likes*1.5) + (total_comment*1)')]);
             $post = Post::where('id', $post_id)->get();
             $likebtn = Interaction::where('commenter', $username)->where('post_id', $post_id)->first();
             return view('partials.interaction', ['posts' => $post, 'like' => $likebtn]);
@@ -35,9 +37,10 @@ class InteractionController extends Controller
                 ]
             );
             $total_likes = Interaction::where('post_id', $post_id)->where('likes', 'true')->count();
-            Post::where('id', $post_id)->update(['likes' => $total_likes]);
+            Post::where('id', $post_id)->update(['updated_at'=>$currentDate,'likes' => $total_likes, 'merit'=> DB::raw('(likes*1.5) + (total_comment*1)')]);
             $likebtn = Interaction::where('commenter', $username)->where('post_id', $post_id)->first();
             $post = Post::where('id', $post_id)->get();
+            
             return view('partials.interaction', ['posts' => $post, 'like' => $likebtn]);
         }
     }
@@ -45,13 +48,13 @@ class InteractionController extends Controller
     {
         $post_id =  $id;
         $username = Auth::guard('member')->user()->username;
-        $username = Auth::guard('member')->user()->username;
+        $currentDate = now()->toDateString();
         $record = Interaction::where('commenter', $username)->where('post_id', $post_id);
         if ($record->exists()) {
             if ($record->where('dislikes', 'false')->exists()) {
-                Interaction::where('post_id', $post_id)->where('dislikes', 'false')->update(['dislikes' => 'true']);
+                Interaction::where('post_id', $post_id)->where('dislikes', 'false')->where('commenter',$username)->update(['dislikes' => 'true']);
             } else if ($record->where('dislikes', 'true')) {
-                Interaction::where('post_id', $post_id)->where('dislikes', 'true')->update(['dislikes' => 'false']);
+                Interaction::where('post_id', $post_id)->where('dislikes', 'true')->where('commenter',$username)->update(['dislikes' => 'false']);
             }
             $total_dislikes = Interaction::where('post_id', $post_id)->where('dislikes', 'true')->count();
             Post::where('id', $post_id)->update(['dislikes' => $total_dislikes]);
