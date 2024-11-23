@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $username = Auth::guard('member')->user()->username;
 
         $likebtn = Interaction::select('post_id', 'commenter', 'likes', 'dislikes', 'shares')->where('commenter', $username)->get();
-
+        
 
         // dd($likebtn2);
         return view('dashboard.index', ['posts' => $post, 'likes' => $likebtn, 'trendings'=>$trending]);

@@ -5,19 +5,6 @@
         <form hx-post="like/{{ $post->id }}"
             hx-target="#interaction-detail-{{ $post->id }}">
             @csrf
-            {{-- <button type="submit"><i
-                class="fa-regular fa-thumbs-up fa-2x"></i></button> --}}
-            {{-- @foreach ($likes as $like)
-                @if ($like->likes == 'false' && $like->post_id == $post->id)
-                    <button type="submit"><i
-                            class="fa-regular fa-thumbs-up fa-2x"></i></button>
-                @elseif ($like->likes == 'true' && $like->post_id == $post->id)
-                    <button type="submit"><i
-                            class="fa-solid fa-thumbs-up fa-2x"></i></button>
-                
-                @endif
-
-            @endforeach --}}
             @foreach ($likes as $like)
                 @if ($like->likes == 'false' && $like->post_id == $post->id)
                     <button type="submit" class="interaction-button-detail"><i
