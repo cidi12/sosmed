@@ -14,9 +14,9 @@ class Post extends Model
         
         'id'
     ];
-    protected $casts = [
-        'updated_at' => 'datetime', // Ensure it's treated as a datetime
-    ];
+    // protected $casts = [
+    //     'updated_at' => 'datetime', // Ensure it's treated as a datetime
+    // ];
 
     
     // public function post(): BelongsTo

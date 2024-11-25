@@ -5,6 +5,7 @@ use App\Http\Controllers\CredentialController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InteractionController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,7 @@ Route::get('/', [CredentialController::class, 'index'])->name('home')->middlewar
 Route::get('signup', [CredentialController::class, 'signUpPage'])->name('signup')->middleware('guest:member');
 Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard')->middleware('auth:member');
 Route::get('post',[PostController::class, 'index'])->name('post')->middleware('auth:member');
-
+Route::get('profile',[ProfileController::class,'index'])->name('profile')->middleware('auth:member');
 
 Route::post('register',[CredentialController::class,'register'])->name('register');
 Route::post('login',[CredentialController::class, 'login'])->name('login');

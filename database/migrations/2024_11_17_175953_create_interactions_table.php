@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('post_id');
             $table->string('commenter');
+            $table->string('email');
             $table->string('likes')->bool()->default('false');
             $table->string('dislikes')->bool()->default('false');
             $table->string('shares')->bool()->default('false');

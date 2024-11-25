@@ -44,7 +44,7 @@
     </div>
     <p> {{ $post->total_comment }} komentar</p>
 </div>
-     <p>Komentar</p>
+     <p>Lihat komentar lain</p>
      <div class="comment-list">
          <b>
              <p> {{ $post->post_commenter }}</p>

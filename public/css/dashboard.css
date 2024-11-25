@@ -319,7 +319,7 @@ main {
     word-break: break-all;
     /* min-width: 100%; */
     width: 100%;
-    background-color: #b5b4b3;
+    background-color: #c0c0c0;
     border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.5) 0 0 9px 3px;
 }

@@ -85,7 +85,7 @@
                         <label for="searchbar"><i class="fa fa-search"></i></label>
                         <input type="search" name="" id="searchbar" placeholder="Cari di Fesnuk">
                     </div>
-                    <a href="">Profile</a>
+                    <a hx-boost="true" href="profile">Profile</a>
                     <a href="">Friend list</a>
                     <a href="">Market Place</a>
                     <form action="logout" method="POST">
@@ -206,7 +206,7 @@
                                     </div>
                                     <p> {{ $post->total_comment }} komentar</p>
                                 </div>
-                                <p>Komentar</p>
+                                <p>Lihat komentar lain</p>
                                 <div class="comment-list">
                                     <b>
                                         <p> {{ $post->post_commenter }}</p>
