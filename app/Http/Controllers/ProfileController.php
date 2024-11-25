@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Interaction;
 use Illuminate\Http\Request;
@@ -16,5 +17,15 @@ class ProfileController extends Controller
         $currentDateTime = now()->toDateString();
         $likebtn = Interaction::select('post_id', 'commenter', 'likes', 'dislikes', 'shares')->where('commenter', $username)->get();
         return view('dashboard.profile',['posts'=>$post,'likes'=>$likebtn]);
+    }
+    public function viewpost(Request $request, $id){
+        $username = Auth::guard('member')->user()->username;
+        $email = Auth::guard('member')->user()->email;
+        $post_id = $id;
+        // dd($post_id);
+        $post = Post::select('id', 'username', 'post_title', 'post_content', 'post_commenter', 'post_comment', 'total_comment', 'likes', 'dislikes', 'shares')->where('id', $post_id)->first();
+        $comments = Comment::select('id','post_id', 'commenter','comment')->limit(5)->get();
+        $likebtn = Interaction::select('post_id', 'commenter', 'likes', 'dislikes', 'shares')->where('commenter', $username)->get();
+        return view('dashboard.viewpost',['posts'=>$post,'likes'=>$likebtn, 'comments'=>$comments]);
     }
 }

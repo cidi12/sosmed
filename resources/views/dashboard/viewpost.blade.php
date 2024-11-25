@@ -25,7 +25,7 @@
 
                 </div>
                 <div class="mid-section-nav">
-                    <a href="home"><i class="fa fa-home fa-2x" id="beranda" onmouseover="hoverFunction()"
+                    <a href="/"><i class="fa fa-home fa-2x" id="beranda" onmouseover="hoverFunction()"
                             aria-hidden="true"><span class="popuptext" id="myPopup">Beranda</span></i>
                     </a>
                     <i class="fa fa-users fa-2x" id="komunitas" onmouseover="hoverFunction2()" aria-hidden="true"><a
@@ -105,29 +105,29 @@
             <div class="mid-section-body" id="post-detail">
                 
                 <div class="post-list">
-                    @foreach ($posts as $post)
+                   
                         {{-- </div> --}}
                         <div class="post-detail">
                             <b>
-                                <p>{{ $post->username }}</p>
+                                <p>{{ $posts->username }}</p>
                             </b>
-                            <p>{{ $post->post_title }}</p>
-                            <p>{{ $post->post_content }}</p>
+                            <p>{{ $posts->post_title }}</p>
+                            <p>{{ $posts->post_content }}</p>
 
-                            <div class="comment-section" id="comment-detail-{{ $post->id }}">
-                                <div class="interaction-button" id="interaction-detail-{{ $post->id }}">
+                            <div class="comment-section" id="comment-detail-{{ $posts->id }}">
+                                <div class="interaction-button" id="interaction-detail-{{ $posts->id }}">
                                     <div class="like">
 
-                                        <form hx-post="like/{{ $post->id }}"
-                                            hx-target="#interaction-detail-{{ $post->id }}">
+                                        <form hx-post="like/{{ $posts->id }}"
+                                            hx-target="#interaction-detail-{{ $posts->id }}">
                                             @csrf
                                             {{-- <button type="submit"><i
                                                 class="fa-regular fa-thumbs-up fa-2x"></i></button> --}}
                                             {{-- @foreach ($likes as $like)
-                                                @if ($like->likes == 'false' && $like->post_id == $post->id)
+                                                @if ($like->likes == 'false' && $like->post_id == $posts->id)
                                                     <button type="submit"><i
                                                             class="fa-regular fa-thumbs-up fa-2x"></i></button>
-                                                @elseif ($like->likes == 'true' && $like->post_id == $post->id)
+                                                @elseif ($like->likes == 'true' && $like->post_id == $posts->id)
                                                     <button type="submit"><i
                                                             class="fa-solid fa-thumbs-up fa-2x"></i></button>
                                                 
@@ -135,10 +135,10 @@
 
                                             @endforeach --}}
                                             @foreach ($likes as $like)
-                                                @if ($like->likes == 'false' && $like->post_id == $post->id)
+                                                @if ($like->likes == 'false' && $like->post_id == $posts->id)
                                                     <button type="submit" class="interaction-button-detail"><i
                                                             class="fa-regular fa-thumbs-up fa-2x"></i></button>
-                                                @elseif ($like->likes == 'true' && $like->post_id == $post->id)
+                                                @elseif ($like->likes == 'true' && $like->post_id == $posts->id)
                                                     <button type="submit" class="interaction-button-detail"><i
                                                             class="fa-solid fa-thumbs-up fa-2x"></i></button>
                                                 @endif
@@ -146,17 +146,17 @@
                                             <button type="submit"><i
                                                     class="fa-regular fa-thumbs-up fa-2x"></i></button>
                                         </form>
-                                        <p>{{ $post->likes }}</p>
+                                        <p>{{ $posts->likes }}</p>
                                     </div>
                                     <div class="dislike">
-                                        <form hx-post="dislike/{{ $post->id }}"
-                                            hx-target="#interaction-detail-{{ $post->id }}">
+                                        <form hx-post="dislike/{{ $posts->id }}"
+                                            hx-target="#interaction-detail-{{ $posts->id }}">
                                             @csrf
                                             @foreach ($likes as $like)
-                                                @if ($like->dislikes == 'false' && $like->post_id == $post->id)
+                                                @if ($like->dislikes == 'false' && $like->post_id == $posts->id)
                                                     <button type="submit" class="interaction-button-detail"><i
                                                             class="fa-regular fa-thumbs-down fa-2x"></i></button>
-                                                @elseif ($like->dislikes == 'true' && $like->post_id == $post->id)
+                                                @elseif ($like->dislikes == 'true' && $like->post_id == $posts->id)
                                                     <button type="submit" class="interaction-button-detail"><i
                                                             class="fa-solid fa-thumbs-down fa-2x"></i></button>
                                                 @endif
@@ -164,28 +164,27 @@
                                             <button type="submit"><i
                                                     class="fa-regular fa-thumbs-down fa-2x"></i></button>
                                         </form>
-                                        <p>{{ $post->dislikes }}</p>
+                                        <p>{{ $posts->dislikes }}</p>
                                     </div>
                                     <div class="share">
                                         <i class="fa-solid fa-share"></i>
-                                        <p>{{ $post->shares }}</p>
+                                        <p>{{ $posts->shares }}</p>
                                     </div>
-                                    <p> {{ $post->total_comment }} komentar</p>
+                                    <p> {{ $posts->total_comment }} komentar</p>
                                 </div>
-                                <a href="viewpost/{{ $post->id }}">Lihat komentar lain</a>
-                               
+                                
                                 <div class="comment-list">
-                                    <b>
-                                        <p> {{ $post->post_commenter }}</p>
-                                    </b>
-                                    <p>{{ $post->post_comment }} </p>
+                                    @foreach ($comments as $comment)
+                                        <b><p>{{ $comment->commenter }}</p></b>
+                                        <p>{{ $comment->comment }}</p>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="add-comment-container">
-                                <form hx-post="comment/{{ $post->id }}"
-                                    hx-target="#comment-detail-{{ $post->id }}">
+                                <form hx-post="comment/{{ $posts->id }}"
+                                    hx-target="#comment-detail-{{ $posts->id }}">
                                     @csrf
-                                    {{-- <input name="post_id" value="{{ $post->id }}"> --}}
+                                    {{-- <input name="post_id" value="{{ $posts->id }}"> --}}
                                     <input name="comment" type="text">
                                     <button type="submit">Send</button>
                                 </form>
@@ -193,7 +192,7 @@
                             </div>
                         </div>
                 
-                @endforeach
+              
             </div>
 
             </div>
