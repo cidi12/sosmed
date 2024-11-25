@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('email');
             $table->string('username');
             $table->string('post_title');
-            $table->string('post_content');
+            $table->text('post_content');
             $table->string('post_commenter')->nullable()->default('');
-            $table->string('post_comment')->nullable()->default('');
+            $table->text('post_comment')->nullable()->default('');
             $table->bigInteger('total_comment')->default('0');
             // $table->json('comment')->nullable();
             $table->bigInteger('likes')->default('0');

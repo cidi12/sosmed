@@ -19,13 +19,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        Post::create([
+        Post::insert([
             [
                 'username' => 'Kucing',
                 'email' => 'test@example.com',
                 'post_title' => 'postingan 1',
                 'post_content' => 'isi post 1',
               
+
             ],
 
             [
@@ -33,7 +34,9 @@ class DatabaseSeeder extends Seeder
                 'email' => 'test@example2.com',
                 'post_title' => 'postingan 2',
                 'post_content' => 'isi post 2',
+                
               
+
             ],
             [
                 'username' => 'Kimbab',
@@ -41,20 +44,19 @@ class DatabaseSeeder extends Seeder
                 'post_title' => 'postingan 3',
                 'post_content' => 'isi post 3',
               
+
             ]
         ]);
-        Credential::create([
-            
-               [ 'username' => 'Cerpelai',
-                'email' => 'qwe@qwe.com',
-                'password' =>   Hash::make('qwe'),],
-                [
-                    'username' => 'Kimbub',
-                    'email' => 'asd@asd.com',
-                    'password' =>   Hash::make('asd'),
-                ]
-                           ]
-           
+        Credential::create(
+            [
+
+                
+                    'username' => 'Cerpelai',
+                    'email' => 'qwe@qwe.com',
+                    'password' =>   Hash::make('qwe'),
+                
+            ]
+
         );
     }
 }

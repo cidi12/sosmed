@@ -85,7 +85,7 @@
                         <label for="searchbar"><i class="fa fa-search"></i></label>
                         <input type="search" name="" id="searchbar" placeholder="Cari di Fesnuk">
                     </div>
-                    <a hx-boost="true" href="profile">Profile</a>
+                    <a href="">Profile</a>
                     <a href="">Friend list</a>
                     <a href="">Market Place</a>
                     <form action="logout" method="POST">

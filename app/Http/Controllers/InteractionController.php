@@ -14,7 +14,8 @@ class InteractionController extends Controller
     {
         $post_id =  $id;
         $username = Auth::guard('member')->user()->username;
-        $record = Interaction::where('commenter', $username)->where('post_id', $post_id);
+        $email = Auth::guard('member')->user()->email;
+        $record = Interaction::where('email', $email)->where('post_id', $post_id);
         $currentDate = now()->toDateString();
         if ($record->exists()) {
             if ($record->where('likes', 'false')->exists()) {
@@ -25,20 +26,21 @@ class InteractionController extends Controller
             $total_likes = Interaction::where('post_id', $post_id)->where('likes', 'true')->count();
             Post::where('id', $post_id)->update(['updated_at'=>$currentDate,'likes' => $total_likes, 'merit'=> DB::raw('(likes*1.5) + (total_comment*1)')]);
             $post = Post::where('id', $post_id)->get();
-            $likebtn = Interaction::where('commenter', $username)->where('post_id', $post_id)->first();
+            $likebtn = Interaction::where('email', $email)->where('post_id', $post_id)->first();
             return view('partials.interaction', ['posts' => $post, 'like' => $likebtn]);
         } else {
             Interaction::create(
                 [
                     'commenter' => $username,
                     'post_id' => $post_id,
+                    'email'=>$email,
                     'likes' => 'true',
                     'dislikes' => 'false'
                 ]
             );
             $total_likes = Interaction::where('post_id', $post_id)->where('likes', 'true')->count();
             Post::where('id', $post_id)->update(['updated_at'=>$currentDate,'likes' => $total_likes, 'merit'=> DB::raw('(likes*1.5) + (total_comment*1)')]);
-            $likebtn = Interaction::where('commenter', $username)->where('post_id', $post_id)->first();
+            $likebtn = Interaction::where('email', $email)->where('post_id', $post_id)->first();
             $post = Post::where('id', $post_id)->get();
             
             return view('partials.interaction', ['posts' => $post, 'like' => $likebtn]);
@@ -49,7 +51,8 @@ class InteractionController extends Controller
         $post_id =  $id;
         $username = Auth::guard('member')->user()->username;
         $currentDate = now()->toDateString();
-        $record = Interaction::where('commenter', $username)->where('post_id', $post_id);
+        $email = Auth::guard('member')->user()->email;
+        $record = Interaction::where('email', $email)->where('post_id', $post_id);
         if ($record->exists()) {
             if ($record->where('dislikes', 'false')->exists()) {
                 Interaction::where('post_id', $post_id)->where('dislikes', 'false')->where('commenter',$username)->update(['dislikes' => 'true']);
@@ -59,13 +62,14 @@ class InteractionController extends Controller
             $total_dislikes = Interaction::where('post_id', $post_id)->where('dislikes', 'true')->count();
             Post::where('id', $post_id)->update(['dislikes' => $total_dislikes]);
             $post = Post::where('id', $post_id)->get();
-            $dislikebtn = Interaction::where('commenter', $username)->where('post_id', $post_id)->first();
+            $dislikebtn = Interaction::where('email', $email)->where('post_id', $post_id)->first();
             return view('partials.interaction', ['posts' => $post,'like'=>$dislikebtn]);
         } else {
             Interaction::create(
                 [
                     'commenter' => $username,
                     'post_id' => $post_id,
+                    'email'=>$email,
                     'dislikes' => 'true',
                     'likes' => 'false'
                 ]
@@ -73,7 +77,7 @@ class InteractionController extends Controller
             $total_dislikes = Interaction::where('post_id', $post_id)->where('dislikes', 'true')->count();
             Post::where('id', $post_id)->update(['dislikes' => $total_dislikes]);
             $post = Post::where('id', $post_id)->get();
-            $dislikebtn = Interaction::where('commenter', $username)->where('post_id', $post_id)->first();
+            $dislikebtn = Interaction::where('email', $email)->where('post_id', $post_id)->first();
             return view('partials.interaction', ['posts' => $post,'like'=>$dislikebtn]);
         }
     }
