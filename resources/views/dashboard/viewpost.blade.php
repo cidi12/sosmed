@@ -163,7 +163,7 @@
                             <div class="comment-list">
                                 @foreach ($comments as $comment)
                                     <b>
-                                        <p>{{ $comment->commenter }}</p>
+                                        <a href="{{ url('viewprofile/'.$comment->user_id) }}">{{ $comment->commenter }}</a>
                                     </b>
                                     <p>{{ $comment->comment }}</p>
                                 @endforeach

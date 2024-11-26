@@ -15,6 +15,7 @@ class CommentController extends Controller
     public function comment(Request $request, $id)
     {
         $post_id = $id;
+        $user_id = Auth::guard('member')->user()->id;
         $username = Auth::guard('member')->user()->username;
         $email = Auth::guard('member')->user()->email;
 
@@ -36,6 +37,7 @@ class CommentController extends Controller
             Comment::create(
                 [
                     'commenter' => $username,
+                    'user_id'=>$user_id,
                     'comment' => $comment,
                     'post_id' => $post_id,
                     'email'=>$email,
@@ -52,7 +54,7 @@ class CommentController extends Controller
     public function postcomment(Request $request, $id)
     {
         $post_id = $id;
-        
+        $user_id = Auth::guard('member')->user()->id;
         $username = Auth::guard('member')->user()->username;
         $email = Auth::guard('member')->user()->email;
 
@@ -63,7 +65,7 @@ class CommentController extends Controller
             if ($validator->fails()) {
                 $post = Post::where('id', $post_id)->first();
                 $likebtn = Interaction::where('email', $email)->get();
-                $comments = Comment::select('id','post_id', 'commenter','comment')->where('post_id',$post_id)->orderBy('created_at', 'DESC')->limit(5)->get();
+                $comments = Comment::select('id','user_id','post_id', 'commenter','comment')->where('post_id',$post_id)->orderBy('created_at', 'DESC')->limit(5)->get();
                 return response(view('partials.postcomments', ['posts' => $post,'comments'=>$comments,'likes'=>$likebtn]));
             }
             $validate = $request->validate(
@@ -76,6 +78,7 @@ class CommentController extends Controller
                 [
                     'commenter' => $username,
                     'comment' => $comment,
+                    'user_id'=>$user_id,
                     'post_id' => $post_id,
                     'email'=>$email,
                 ]
@@ -85,7 +88,7 @@ class CommentController extends Controller
             Post::where('id', $post_id)->update(['total_comment' => $total_comment, 'post_comment' => $comment, 'post_commenter' => $username, 'updated_at' => $currentDate, 'merit' => DB::raw('(likes*1.5) + (total_comment*1)')]);
             $post = Post::where('id', $post_id)->first();
             $likebtn = Interaction::where('email', $email)->get();
-            $comments = Comment::select('id','post_id', 'commenter','comment')->where('post_id',$post_id)->orderBy('created_at', 'DESC')->limit(5)->get();
+            $comments = Comment::select('id','user_id','post_id', 'commenter','comment')->where('post_id',$post_id)->orderBy('created_at', 'DESC')->limit(5)->get();
             return view('partials.postcomments', ['posts' => $post,'comments'=>$comments, 'likes' => $likebtn]);;
         }
     }

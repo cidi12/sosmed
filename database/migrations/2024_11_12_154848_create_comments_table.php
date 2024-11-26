@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->string('post_id');
+            $table->string('user_id');
             $table->string('commenter');
             $table->string('email');
             $table->text('comment')->nullable();
