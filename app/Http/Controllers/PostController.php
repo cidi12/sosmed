@@ -26,6 +26,7 @@ class PostController extends Controller
         );
         $email = Auth::guard('member')->user()->email;
         $username = Auth::guard('member')->user()->username;
+        $user_id =Auth::guard('member')->user()->id;
         // $user = Credential::where('email', $email)->first();
 
         // $user->user()
@@ -35,6 +36,7 @@ class PostController extends Controller
                 'post_content' => $validated['post-content'],
                 'username' => $username,
                 'email' => $email,
+                'user_id'=>$user_id,
                 'comment' =>
                 [
                     ['name' => '', 'text' => '', 'email' => ''],

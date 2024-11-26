@@ -25,6 +25,8 @@ Route::get('dashboard',[DashboardController::class, 'index'])->name('dashboard')
 Route::get('post',[PostController::class, 'index'])->name('post')->middleware('auth:member');
 Route::get('profile',[ProfileController::class,'index'])->name('profile')->middleware('auth:member');
 Route::get('viewpost/{id}',[ProfileController::class,'viewpost'])->name('viewpost')->middleware('auth:member');
+Route::get('viewprofile/{id}',[ProfileController::class,'viewprofile'])->name('viewprofile')->middleware('auth:member');
+
 
 Route::post('register',[CredentialController::class,'register'])->name('register');
 Route::post('login',[CredentialController::class, 'login'])->name('login');

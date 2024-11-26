@@ -19,34 +19,34 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        Post::insert([
-            [
-                'username' => 'Kucing',
-                'email' => 'test@example.com',
-                'post_title' => 'postingan 1',
-                'post_content' => 'isi post 1',
+        // Post::insert([
+        //     [
+        //         'username' => 'Kucing',
+        //         'email' => 'test@example.com',
+        //         'post_title' => 'postingan 1',
+        //         'post_content' => 'isi post 1',
               
 
-            ],
+        //     ],
 
-            [
-                'username' => 'Shiro',
-                'email' => 'test@example2.com',
-                'post_title' => 'postingan 2',
-                'post_content' => 'isi post 2',
+        //     [
+        //         'username' => 'Shiro',
+        //         'email' => 'test@example2.com',
+        //         'post_title' => 'postingan 2',
+        //         'post_content' => 'isi post 2',
                 
               
 
-            ],
-            [
-                'username' => 'Kimbab',
-                'email' => 'test@example3.com',
-                'post_title' => 'postingan 3',
-                'post_content' => 'isi post 3',
+        //     ],
+        //     [
+        //         'username' => 'Kimbab',
+        //         'email' => 'test@example3.com',
+        //         'post_title' => 'postingan 3',
+        //         'post_content' => 'isi post 3',
               
 
-            ]
-        ]);
+        //     ]
+        // ]);
         Credential::create(
             [
 

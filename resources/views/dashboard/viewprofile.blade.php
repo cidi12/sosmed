@@ -9,15 +9,13 @@
         <link rel="stylesheet" href="{{ asset('icon/css/all.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/mediaquerydashboard.css') }}">
         <script src="{{ asset('js/htmx.min.js') }}"></script>
-        <title>Dashboard</title>
+        <title>View Profile</title>
     </head>
 
     <body>
 
         <header>
-            
             <nav>
-                
                 <div class="left-section-nav">
                     <img src="{{ asset('img/logo.jpg') }}">
                     <div class="searchbar-container">
@@ -27,7 +25,7 @@
 
                 </div>
                 <div class="mid-section-nav">
-                    <a href="home"><i class="fa fa-home fa-2x" id="beranda" onmouseover="hoverFunction()"
+                    <a href="/"><i class="fa fa-home fa-2x" id="beranda" onmouseover="hoverFunction()"
                             aria-hidden="true"><span class="popuptext" id="myPopup">Beranda</span></i>
                     </a>
                     <i class="fa fa-users fa-2x" id="komunitas" onmouseover="hoverFunction2()" aria-hidden="true"><a
@@ -39,14 +37,29 @@
                     <div class="hamburger-menu-container">
                         <button id="mobile-menu"> <i class="fa fa-bars fa-2x"></i></button>
                         <button id="mobile-menu-close"> <i class="fa fa-bars fa-2x"></i></button>
+
                     </div>
-                    
+
                 </div>
-                
+                <div class="hamburger-items" id="hamburger-items">
+                    <div class="searchbar-container">
+                        <label for="searchbar"><i class="fa fa-search"></i></label>
+                        <input type="search" name="" id="searchbar" placeholder="Cari di Fesnuk">
+                    </div>
+                    <a href="">Profile</a>
+                    <a href="">Friend list</a>
+                    <a href="">Market Place</a>
+                    <form action="logout" method="POST">
+                        @csrf
+                        <button>Sign out</button>
+                    </form>
+
+                </div>
                 <div class="right-section-nav">
                     <i class="fa fa-shopping-bag fa-2x" id="marketplace" onmouseover="hoverFunction3()"
                         aria-hidden="true"><a href=""></a><span class="popuptext"
                             id="myPopup3">Marketplace</span></i>
+
                     <button id="web-menu">
                         <div class="circle-container">
                             <div class="image-container">
@@ -72,78 +85,31 @@
                         </div>
                     </button>
 
+
                     {{-- <form action="logout" method="post">
                     @csrf
                      <button type="submit" >Log out</button>
                 </form> --}}
                 </div>
-                
-            </nav>
-            <div class="hamburger-menu">
-                <div class="hamburger-items" id="hamburger-items">
-                    <div class="searchbar-container">
-                        <label for="searchbar"><i class="fa fa-search"></i></label>
-                        <input type="search" name="" id="searchbar" placeholder="Cari di Fesnuk">
-                    </div>
-                    <a href="">Profile</a>
-                    <a href="">Friend list</a>
-                    <a href="">Market Place</a>
-                    <form action="logout" method="POST">
-                        @csrf
-                        <button>Sign out</button>
-                    </form>
 
-                </div>
-            </div>
+
+
+            </nav>
         </header>
-        
         <main>
-            
             <div class="left-section-body">
                 <div class="upper-left-container">
-                    <b>Trending hari ini</b>
-                    <hr>
-                    <div class="trending-list">
-                        @foreach ($trendings as $trending)
-                            @if ($trending->merit > 15)
-                                <a href="">{{ $trending->post_title }} <i class="fa-solid fa-fire"></i></a>
-                            @endif
-                        @endforeach
 
-                    </div>
-                    <br>
-                    <b>Pintasan Grup</b>
-                    <hr>
-                    <div class="group-list">
-                        <a href="">Ingin Menjadi Programmer Handal Namun Enggan Ngoding</a>
-                        <a href="">Javascript Bahasa Tol...</a>
-                        <a href="">PHP Bahasa Dewa</a>
-                        <a href="">Komunitas Orang Susah (KOS-BADAK)</a>
-                        <a href="">IMMORTAL FISH (REBORN)</a>
-                    </div>
                 </div>
-
             </div>
-            
             <div class="mid-section-body" id="post-detail">
-                <div class="post-status-container">
-                    <div class="circle-container">
-                        <div class="image-container">
-                            <img src="{{ asset('img/profile.png') }}">
-                        </div>
-                        <div class="animated-border"></div>
-                    </div>
-                    <div>
-                        <a href="post"><button>Tuliskan sesuatu yang menarik !</button></a>
-                    </div>
+                @foreach ($posts as $post)
+                    <div class="post-list">
 
-                </div>
-                <div class="post-list">
-                    @foreach ($posts as $post)
                         {{-- </div> --}}
                         <div class="post-detail">
                             <b>
-                                <a href="viewprofile/{{ $post->user_id }}">{{ $post->username }}</a>
+                                <p>{{ $post->username }}</p>
                             </b>
                             <p>{{ $post->post_title }}</p>
                             <p>{{ $post->post_content }}</p>
@@ -155,19 +121,7 @@
                                         <form hx-post="like/{{ $post->id }}"
                                             hx-target="#interaction-detail-{{ $post->id }}">
                                             @csrf
-                                            {{-- <button type="submit"><i
-                                                class="fa-regular fa-thumbs-up fa-2x"></i></button> --}}
-                                            {{-- @foreach ($likes as $like)
-                                                @if ($like->likes == 'false' && $like->post_id == $post->id)
-                                                    <button type="submit"><i
-                                                            class="fa-regular fa-thumbs-up fa-2x"></i></button>
-                                                @elseif ($like->likes == 'true' && $like->post_id == $post->id)
-                                                    <button type="submit"><i
-                                                            class="fa-solid fa-thumbs-up fa-2x"></i></button>
-                                                
-                                                @endif
 
-                                            @endforeach --}}
                                             @foreach ($likes as $like)
                                                 @if ($like->likes == 'false' && $like->post_id == $post->id)
                                                     <button type="submit" class="interaction-button-detail"><i
@@ -206,60 +160,40 @@
                                     </div>
                                     <p> {{ $post->total_comment }} komentar</p>
                                 </div>
-                                <a href="viewpost/{{ $post->id }}">Lihat komentar lain</a>
+
                                 <div class="comment-list">
-                                    <b>
-                                        <p> {{ $post->post_commenter }}</p>
-                                    </b>
-                                    <p>{{ $post->post_comment }} </p>
+                                    @foreach ($comments as $comment)
+                                        <b>
+                                            <p>{{ $comment->commenter }}</p>
+                                        </b>
+                                        <p>{{ $comment->comment }}</p>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="add-comment-container">
                                 <form hx-post="comment/{{ $post->id }}"
                                     hx-target="#comment-detail-{{ $post->id }}">
                                     @csrf
-                                    {{-- <input name="post_id" value="{{ $post->id }}"> --}}
+                                    {{-- <input name="post_id" value="{{ $posts->id }}"> --}}
                                     <input name="comment" type="text">
                                     <button type="submit">Send</button>
                                 </form>
 
                             </div>
                         </div>
-                
+
+
+                    </div>
                 @endforeach
             </div>
 
             </div>
-
             <div class="right-section-body">
                 <div class="upper-right-container">
-                    <b>Permintaan pertemanan</b>
-                    <hr>
-                    <div class="friend-request">
-                        <a href="">Kucing</a>
-                        <a href="">Presiden</a>
-                        <a href="">Kambing</a>
-                        <a href="">Wowo</a>
-                        <a href="">Bobi de cat</a>
-                        <a href="">Keledais</a>
-                        <a href="">Kucing tampan</a>
-                    </div>
-                    <br>
-                    <b>Pertemanan</b>
-                    <hr>
-                    <div class="friend-list">
-                        <a href="">Kudaeee</a>
-                        <a href="">Presiden RI</a>
-                        <a href="">Kambing jantansss</a>
-                        <a href="">Si Bolang</a>
-                        <a href="">Bobi kartanagara</a>
-                        <a href="">Jardeen</a>
-                        <a href="">Kucing Pemberani</a>
-                    </div>
+
                 </div>
             </div>
         </main>
-
         {{-- <div>
   Halo {{ Auth::user()->email }}
     </div> --}}
@@ -267,7 +201,7 @@
 
 
 
-        <script src="{{ asset('js/dashboard.js') }}"></script>
+
 
     </body>
 
