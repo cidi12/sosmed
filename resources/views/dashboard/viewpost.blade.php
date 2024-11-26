@@ -37,7 +37,7 @@
                     <div class="hamburger-menu-container">
                         <button id="mobile-menu"> <i class="fa fa-bars fa-2x"></i></button>
                         <button id="mobile-menu-close"> <i class="fa fa-bars fa-2x"></i></button>
-                        
+
                     </div>
 
                 </div>
@@ -60,31 +60,31 @@
                         aria-hidden="true"><a href=""></a><span class="popuptext"
                             id="myPopup3">Marketplace</span></i>
 
-                            <button id="web-menu">
-                                <div class="circle-container">
-                                    <div class="image-container">
-                                        <img src="{{ asset('img/profile.png') }}">
-        
-                                    </div>
-                                    <div class="animated-border">
-        
-                                    </div>
-        
-                                </div>
-                            </button>
-                            <button id="web-menu-close">
-                                <div class="circle-container">
-                                    <div class="image-container">
-                                        <img src="{{ asset('img/profile.png') }}">
-        
-                                    </div>
-                                    <div class="animated-border">
-        
-                                    </div>
-        
-                                </div>
-                            </button>
-        
+                    <button id="web-menu">
+                        <div class="circle-container">
+                            <div class="image-container">
+                                <img src="{{ asset('img/profile.png') }}">
+
+                            </div>
+                            <div class="animated-border">
+
+                            </div>
+
+                        </div>
+                    </button>
+                    <button id="web-menu-close">
+                        <div class="circle-container">
+                            <div class="image-container">
+                                <img src="{{ asset('img/profile.png') }}">
+
+                            </div>
+                            <div class="animated-border">
+
+                            </div>
+
+                        </div>
+                    </button>
+
 
                     {{-- <form action="logout" method="post">
                     @csrf
@@ -103,85 +103,86 @@
                 </div>
             </div>
             <div class="mid-section-body" id="post-detail">
-                
+
                 <div class="post-list">
-                   
-                        {{-- </div> --}}
-                        <div class="post-detail">
-                            <b>
-                                <p>{{ $posts->username }}</p>
-                            </b>
-                            <p>{{ $posts->post_title }}</p>
-                            <p>{{ $posts->post_content }}</p>
 
-                            <div class="comment-section" id="comment-detail-{{ $posts->id }}">
-                                <div class="interaction-button" id="interaction-detail-{{ $posts->id }}">
-                                    <div class="like">
+                    {{-- </div> --}}
+                    <div class="post-detail">
+                        <b>
+                            <a href="{{ url('viewprofile/' . $posts->user_id) }}">{{ $posts->username }}</a>
+                        </b>
+                        <p>{{ $posts->post_title }}</p>
+                        <p>{{ $posts->post_content }}</p>
 
-                                        <form hx-post="like/{{ $posts->id }}"
-                                            hx-target="#interaction-detail-{{ $posts->id }}">
-                                            @csrf
-                                          
-                                            @foreach ($likes as $like)
-                                                @if ($like->likes == 'false' && $like->post_id == $posts->id)
-                                                    <button type="submit" class="interaction-button-detail"><i
-                                                            class="fa-regular fa-thumbs-up fa-2x"></i></button>
-                                                @elseif ($like->likes == 'true' && $like->post_id == $posts->id)
-                                                    <button type="submit" class="interaction-button-detail"><i
-                                                            class="fa-solid fa-thumbs-up fa-2x"></i></button>
-                                                @endif
-                                            @endforeach
-                                            <button type="submit"><i
-                                                    class="fa-regular fa-thumbs-up fa-2x"></i></button>
-                                        </form>
-                                        <p>{{ $posts->likes }}</p>
-                                    </div>
-                                    <div class="dislike">
-                                        <form hx-post="dislike/{{ $posts->id }}"
-                                            hx-target="#interaction-detail-{{ $posts->id }}">
-                                            @csrf
-                                            @foreach ($likes as $like)
-                                                @if ($like->dislikes == 'false' && $like->post_id == $posts->id)
-                                                    <button type="submit" class="interaction-button-detail"><i
-                                                            class="fa-regular fa-thumbs-down fa-2x"></i></button>
-                                                @elseif ($like->dislikes == 'true' && $like->post_id == $posts->id)
-                                                    <button type="submit" class="interaction-button-detail"><i
-                                                            class="fa-solid fa-thumbs-down fa-2x"></i></button>
-                                                @endif
-                                            @endforeach
-                                            <button type="submit"><i
-                                                    class="fa-regular fa-thumbs-down fa-2x"></i></button>
-                                        </form>
-                                        <p>{{ $posts->dislikes }}</p>
-                                    </div>
-                                    <div class="share">
-                                        <i class="fa-solid fa-share"></i>
-                                        <p>{{ $posts->shares }}</p>
-                                    </div>
-                                    <p> {{ $posts->total_comment }} komentar</p>
+                        <div class="comment-section" id="comment-detail-{{ $posts->id }}">
+                            <div class="interaction-button" id="interaction-detail-{{ $posts->id }}">
+                                <div class="like">
+
+                                    <form hx-post="{{ url('like/' . $posts->id) }}"
+                                        hx-target="#interaction-detail-{{ $posts->id }}">
+                                        @csrf
+
+                                        @foreach ($likes as $like)
+                                            @if ($like->likes == 'false' && $like->post_id == $posts->id)
+                                                <button type="submit" class="interaction-button-detail"><i
+                                                        class="fa-regular fa-thumbs-up fa-2x"></i></button>
+                                            @elseif ($like->likes == 'true' && $like->post_id == $posts->id)
+                                                <button type="submit" class="interaction-button-detail"><i
+                                                        class="fa-solid fa-thumbs-up fa-2x"></i></button>
+                                            @endif
+                                        @endforeach
+                                        <button type="submit"><i class="fa-regular fa-thumbs-up fa-2x"></i></button>
+                                    </form>
+                                    <p>{{ $posts->likes }}</p>
                                 </div>
-                                
-                                <div class="comment-list">
-                                    @foreach ($comments as $comment)
-                                        <b><p>{{ $comment->commenter }}</p></b>
-                                        <p>{{ $comment->comment }}</p>
-                                    @endforeach
+                                <div class="dislike">
+                                    <form hx-post="{{ url('dislike/' . $posts->id) }}"
+                                        hx-target="#interaction-detail-{{ $posts->id }}">
+                                        @csrf
+                                        @foreach ($likes as $like)
+                                            @if ($like->dislikes == 'false' && $like->post_id == $posts->id)
+                                                <button type="submit" class="interaction-button-detail"><i
+                                                        class="fa-regular fa-thumbs-down fa-2x"></i></button>
+                                            @elseif ($like->dislikes == 'true' && $like->post_id == $posts->id)
+                                                <button type="submit" class="interaction-button-detail"><i
+                                                        class="fa-solid fa-thumbs-down fa-2x"></i></button>
+                                            @endif
+                                        @endforeach
+                                        <button type="submit"><i
+                                                class="fa-regular fa-thumbs-down fa-2x"></i></button>
+                                    </form>
+                                    <p>{{ $posts->dislikes }}</p>
                                 </div>
+                                <div class="share">
+                                    <i class="fa-solid fa-share"></i>
+                                    <p>{{ $posts->shares }}</p>
+                                </div>
+                                <p> {{ $posts->total_comment }} komentar</p>
                             </div>
-                            <div class="add-comment-container">
-                                <form hx-post="comment/{{ $posts->id }}"
-                                    hx-target="#comment-detail-{{ $posts->id }}">
-                                    @csrf
-                                    {{-- <input name="post_id" value="{{ $posts->id }}"> --}}
-                                    <input name="comment" type="text">
-                                    <button type="submit">Send</button>
-                                </form>
 
+                            <div class="comment-list">
+                                @foreach ($comments as $comment)
+                                    <b>
+                                        <p>{{ $comment->commenter }}</p>
+                                    </b>
+                                    <p>{{ $comment->comment }}</p>
+                                @endforeach
                             </div>
                         </div>
-                
-              
-            </div>
+                        <div class="add-comment-container">
+                            <form hx-post="{{ url('postcomment/' . $posts->id) }}"
+                                hx-target="#comment-detail-{{ $posts->id }}">
+                                @csrf
+                                {{-- <input name="post_id" value="{{ $posts->id }}"> --}}
+                                <input name="comment" type="text">
+                                <button type="submit">Send</button>
+                            </form>
+
+                        </div>
+                    </div>
+
+
+                </div>
 
             </div>
 

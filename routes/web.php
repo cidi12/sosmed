@@ -33,6 +33,7 @@ Route::post('login',[CredentialController::class, 'login'])->name('login');
 Route::post('logout',[CredentialController::class, 'logout'])->name('logout');
 Route::post('post',[PostController::class, 'post'])->name('post');
 Route::post('comment/{id}',[CommentController::class, 'comment'])->name('comment');
+Route::post('postcomment/{id}',[CommentController::class, 'postcomment'])->name('postcomment');
 Route::post('like/{id}',[InteractionController::class, 'like'])->name('like');
 Route::post('dislike/{id}',[InteractionController::class, 'dislike'])->name('dislike');
 Route::get('/{any}', [CredentialController::class, 'index'])

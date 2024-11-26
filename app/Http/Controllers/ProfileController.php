@@ -23,8 +23,8 @@ class ProfileController extends Controller
        
         $post_id = $id;
         // dd($post_id);
-        $post = Post::select('id', 'username', 'post_title', 'post_content', 'post_commenter', 'post_comment', 'total_comment', 'likes', 'dislikes', 'shares')->where('id', $post_id)->first();
-        $comments = Comment::select('id','post_id', 'commenter','comment')->where('post_id',$post_id)->limit(5)->get();
+        $post = Post::select('id','user_id', 'username', 'post_title', 'post_content', 'post_commenter', 'post_comment', 'total_comment', 'likes', 'dislikes', 'shares')->where('id', $post_id)->first();
+        $comments = Comment::select('id','post_id', 'commenter','comment')->where('post_id',$post_id)->orderBy('created_at', 'DESC')->limit(5)->get();
         $likebtn = Interaction::select('post_id', 'commenter', 'likes', 'dislikes', 'shares')->where('commenter', $username)->get();
         return view('dashboard.viewpost',['posts'=>$post,'likes'=>$likebtn, 'comments'=>$comments]);
     }
@@ -34,8 +34,8 @@ class ProfileController extends Controller
         $post_id = $id;
         // dd($post_id);
         $post = Post::select('id', 'username', 'post_title', 'post_content', 'post_commenter', 'post_comment', 'total_comment', 'likes', 'dislikes', 'shares')->where('user_id', $post_id)->get();
-        $comments = Comment::select('id','post_id', 'commenter','comment')->where('post_id',$post_id)->limit(5)->get();
+        // $comments = Comment::select('id','post_id', 'commenter','comment')->where('post_id',$post_id)->limit(5)->get();
         $likebtn = Interaction::select('post_id', 'commenter', 'likes', 'dislikes', 'shares')->where('commenter', $username)->get();
-        return view('dashboard.viewprofile',['posts'=>$post,'likes'=>$likebtn, 'comments'=>$comments]);
+        return view('dashboard.viewprofile',['posts'=>$post,'likes'=>$likebtn]);
     }
 }

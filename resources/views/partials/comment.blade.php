@@ -2,7 +2,7 @@
  <div class="interaction-button" id="interaction-detail-{{ $post->id }}">
     <div class="like">
 
-        <form hx-post="like/{{ $post->id }}"
+        <form hx-post="{{  url('like/'.$post->id)}}"
             hx-target="#interaction-detail-{{ $post->id }}">
             @csrf
             @foreach ($likes as $like)
@@ -21,7 +21,7 @@
         <p>{{ $post->likes }}</p>
     </div>
     <div class="dislike">
-        <form hx-post="dislike/{{ $post->id }}"
+        <form hx-post="{{  url('dislike/'.$post->id)}}"
             hx-target="#interaction-detail-{{ $post->id }}">
             @csrf
             @foreach ($likes as $like)
@@ -44,7 +44,7 @@
     </div>
     <p> {{ $post->total_comment }} komentar</p>
 </div>
-     <p>Lihat komentar lain</p>
+<a href="{{  url('viewpost/'.$post->id)}}">Lihat komentar lain</a>
      <div class="comment-list">
          <b>
              <p> {{ $post->post_commenter }}</p>

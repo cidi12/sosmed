@@ -118,7 +118,7 @@
                                 <div class="interaction-button" id="interaction-detail-{{ $post->id }}">
                                     <div class="like">
 
-                                        <form hx-post="like/{{ $post->id }}"
+                                        <form hx-post="{{  url('like/'.$post->id)}}"
                                             hx-target="#interaction-detail-{{ $post->id }}">
                                             @csrf
 
@@ -137,7 +137,7 @@
                                         <p>{{ $post->likes }}</p>
                                     </div>
                                     <div class="dislike">
-                                        <form hx-post="dislike/{{ $post->id }}"
+                                        <form hx-post="{{  url('dislike/'.$post->id)}}"
                                             hx-target="#interaction-detail-{{ $post->id }}">
                                             @csrf
                                             @foreach ($likes as $like)
@@ -159,19 +159,18 @@
                                         <p>{{ $post->shares }}</p>
                                     </div>
                                     <p> {{ $post->total_comment }} komentar</p>
+                                    
                                 </div>
-
+                                <a href="{{  url('viewpost/'.$post->id)}}">Lihat komentar lain</a>
                                 <div class="comment-list">
-                                    @foreach ($comments as $comment)
-                                        <b>
-                                            <p>{{ $comment->commenter }}</p>
-                                        </b>
-                                        <p>{{ $comment->comment }}</p>
-                                    @endforeach
+                                    <b>
+                                        <p> {{ $post->post_commenter }}</p>
+                                    </b>
+                                    <p>{{ $post->post_comment }} </p>
                                 </div>
                             </div>
                             <div class="add-comment-container">
-                                <form hx-post="comment/{{ $post->id }}"
+                                <form hx-post="{{  url('comment/'.$post->id)}}"
                                     hx-target="#comment-detail-{{ $post->id }}">
                                     @csrf
                                     {{-- <input name="post_id" value="{{ $posts->id }}"> --}}
