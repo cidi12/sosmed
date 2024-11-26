@@ -20,7 +20,7 @@ class ProfileController extends Controller
     }
     public function viewpost(Request $request, $id){
         $username = Auth::guard('member')->user()->username;
-        $email = Auth::guard('member')->user()->email;
+       
         $post_id = $id;
         // dd($post_id);
         $post = Post::select('id', 'username', 'post_title', 'post_content', 'post_commenter', 'post_comment', 'total_comment', 'likes', 'dislikes', 'shares')->where('id', $post_id)->first();
