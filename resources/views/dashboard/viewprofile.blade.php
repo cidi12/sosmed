@@ -5,9 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/post.css') }}">
         <link rel="stylesheet" href="{{ asset('icon/css/all.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/mediaquerydashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/mediaquerypost.css') }}">
         <script src="{{ asset('js/htmx.min.js') }}"></script>
         <title>View Profile</title>
     </head>
@@ -46,7 +46,7 @@
                         <label for="searchbar"><i class="fa fa-search"></i></label>
                         <input type="search" name="" id="searchbar" placeholder="Cari di Fesnuk">
                     </div>
-                    <a href="">Profile</a>
+                    <a href="{{ url('profile') }}">Profile</a>
                     <a href="">Friend list</a>
                     <a href="">Market Place</a>
                     <form action="logout" method="POST">
@@ -201,7 +201,7 @@
 
 
 
-
+    <script src="{{ asset('js/post.js') }}"></script>
     </body>
 
 </html>

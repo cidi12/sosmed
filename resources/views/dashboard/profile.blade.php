@@ -5,9 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/post.css') }}">
         <link rel="stylesheet" href="{{ asset('icon/css/all.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/mediaquerydashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/mediaquerypost.css') }}">
         <script src="{{ asset('js/htmx.min.js') }}"></script>
         <title>Dashboard</title>
     </head>
@@ -46,7 +46,7 @@
                         <label for="searchbar"><i class="fa fa-search"></i></label>
                         <input type="search" name="" id="searchbar" placeholder="Cari di Fesnuk">
                     </div>
-                    <a href="">Profile</a>
+                    <a href="{{ url('profile') }}">Profile</a>
                     <a href="">Friend list</a>
                     <a href="">Market Place</a>
                     <form action="logout" method="POST">
@@ -103,7 +103,18 @@
                 </div>
             </div>
             <div class="mid-section-body" id="post-detail">
-                
+                <div class="post-status-container">
+                    <div class="circle-container">
+                        <div class="image-container">
+                            <img src="{{ asset('img/profile.png') }}">
+                        </div>
+                        <div class="animated-border"></div>
+                    </div>
+                    <div>
+                        <a href="post"><button>Tuliskan sesuatu yang menarik !</button></a>
+                    </div>
+
+                </div>
                 <div class="post-list">
                     @foreach ($posts as $post)
                         {{-- </div> --}}
@@ -213,7 +224,7 @@
 
 
 
-
+    <script src="{{ asset('js/post.js') }}"></script>
     </body>
 
 </html>
