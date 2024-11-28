@@ -97,12 +97,38 @@
             </nav>
         </header>
         <main>
+
             <div class="left-section-body">
                 <div class="upper-left-container">
 
                 </div>
             </div>
             <div class="mid-section-body" id="post-detail">
+                <div class="profile-bgimage">
+                    <img src="{{ asset('img/logo.jpg') }}">
+                </div>
+                <div class="profile-bar">
+                    <div class="profile-details-container">
+                        <div class="circle-container">
+                            <div class="image-container">
+                                <img src="{{ asset('img/hijau.jpg') }}">
+                            </div>
+                            <div class="animated-border"></div>
+
+                        </div>
+                        <div class="profile-intro">
+                            <div>{{ $profile->username }}</div>
+                            <div>intro singkat</div>
+                            <div>1200 teman</div>
+                        </div>
+                    </div>
+                    <div class="add-friend-container">
+                        <div><button>Tambah teman</button></div>
+                        <div><button>Kirim pesan</button></div>
+                    </div>
+
+                </div>
+
                 @foreach ($posts as $post)
                     <div class="post-list">
 
@@ -118,7 +144,7 @@
                                 <div class="interaction-button" id="interaction-detail-{{ $post->id }}">
                                     <div class="like">
 
-                                        <form hx-post="{{  url('like/'.$post->id)}}"
+                                        <form hx-post="{{ url('like/' . $post->id) }}"
                                             hx-target="#interaction-detail-{{ $post->id }}">
                                             @csrf
 
@@ -137,7 +163,7 @@
                                         <p>{{ $post->likes }}</p>
                                     </div>
                                     <div class="dislike">
-                                        <form hx-post="{{  url('dislike/'.$post->id)}}"
+                                        <form hx-post="{{ url('dislike/' . $post->id) }}"
                                             hx-target="#interaction-detail-{{ $post->id }}">
                                             @csrf
                                             @foreach ($likes as $like)
@@ -159,9 +185,9 @@
                                         <p>{{ $post->shares }}</p>
                                     </div>
                                     <p> {{ $post->total_comment }} komentar</p>
-                                    
+
                                 </div>
-                                <a href="{{  url('viewpost/'.$post->id)}}">Lihat komentar lain</a>
+                                <a href="{{ url('viewpost/' . $post->id) }}">Lihat komentar lain</a>
                                 <div class="comment-list">
                                     <b>
                                         <p> {{ $post->post_commenter }}</p>
@@ -170,7 +196,7 @@
                                 </div>
                             </div>
                             <div class="add-comment-container">
-                                <form hx-post="{{  url('comment/'.$post->id)}}"
+                                <form hx-post="{{ url('comment/' . $post->id) }}"
                                     hx-target="#comment-detail-{{ $post->id }}">
                                     @csrf
                                     {{-- <input name="post_id" value="{{ $posts->id }}"> --}}
@@ -201,7 +227,7 @@
 
 
 
-    <script src="{{ asset('js/post.js') }}"></script>
+        <script src="{{ asset('js/post.js') }}"></script>
     </body>
 
 </html>
