@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Interaction;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,9 +35,10 @@ class ProfileController extends Controller
         $post_id = $id;
         // dd($post_id);
         $post = Post::select('id', 'username', 'post_title', 'post_content', 'post_commenter', 'post_comment', 'total_comment', 'likes', 'dislikes', 'shares')->where('user_id', $post_id)->get();
-        $profile = Post::select('id', 'username')->where('user_id', $post_id)->first();
-        // $comments = Comment::select('id','post_id', 'commenter','comment')->where('post_id',$post_id)->limit(5)->get();
+        $profile = Post::select('id', 'username', 'user_id')->where('user_id', $post_id)->first();
         $likebtn = Interaction::select('post_id', 'commenter', 'likes', 'dislikes', 'shares')->where('commenter', $username)->get();
-        return view('dashboard.viewprofile',['posts'=>$post,'likes'=>$likebtn, 'profile'=>$profile]);
+        $friendcount = Profile::select('id','user_id','friend')->where('user_id',$post_id)->where('friend','true')->count();
+        $friendlist = Profile::select('id','user_id','friend')->where('user_id',$post_id)->first();
+        return view('dashboard.viewprofile',['posts'=>$post,'likes'=>$likebtn, 'profile'=>$profile,'friendlist'=>$friendcount,'friendstatus'=>$friendlist]);
     }
 }

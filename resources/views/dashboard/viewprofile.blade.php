@@ -119,11 +119,27 @@
                         <div class="profile-intro">
                             <div>{{ $profile->username }}</div>
                             <div>intro singkat</div>
-                            <div>1200 teman</div>
+                            <div>{{ $friendlist }}</div>
                         </div>
                     </div>
                     <div class="add-friend-container">
-                        <div><button>Tambah teman</button></div>
+                        <div>
+                            @if ($profile->user_id == Auth::guard('member')->user()->id)
+                                
+                          @else
+                            <form action="{{ url('addfriend/' . $profile->user_id) }}" method="POST">
+                                @csrf
+                                @if (!isset($friendstatus->friend) || $friendstatus->friend =='false')
+                                    <button type="submit">Tambah pertemanan</button>
+                                @elseif ($friendstatus->friend == 'true')
+                                    <button type="submit">Putus perteman</button>
+                                @endif
+
+
+                            </form>
+                            @endif
+
+                        </div>
                         <div><button>Kirim pesan</button></div>
                     </div>
 
