@@ -29,7 +29,7 @@
                             aria-hidden="true"><span class="popuptext" id="myPopup">Beranda</span></i>
                     </a>
                     <i class="fa fa-users fa-2x" id="komunitas" onmouseover="hoverFunction2()" aria-hidden="true"><a
-                            href=""></a><span class="popuptext" id="myPopup2">Komunitas</span></i>
+                            href="{{ url('dashboard.group') }}"></a><span class="popuptext" id="myPopup2">Komunitas</span></i>
                     <i class="fa fa-comments fa-2x" id="pesan" onmouseover="hoverFunction4()" aria-hidden="true"><a
                             href=""></a><span class="popuptext" id="myPopup4">Pesan</span></i>
                     <i class="fa fa-bell fa-2x" id="notifikasi" onmouseover="hoverFunction5()" aria-hidden="true"><a

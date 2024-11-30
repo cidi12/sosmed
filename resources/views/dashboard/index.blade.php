@@ -15,9 +15,9 @@
     <body>
 
         <header>
-            
+
             <nav>
-                
+
                 <div class="left-section-nav">
                     <img src="{{ asset('img/logo.jpg') }}">
                     <div class="searchbar-container">
@@ -30,8 +30,10 @@
                     <a href="home"><i class="fa fa-home fa-2x" id="beranda" onmouseover="hoverFunction()"
                             aria-hidden="true"><span class="popuptext" id="myPopup">Beranda</span></i>
                     </a>
-                    <i class="fa fa-users fa-2x" id="komunitas" onmouseover="hoverFunction2()" aria-hidden="true"><a
-                            href=""></a><span class="popuptext" id="myPopup2">Komunitas</span></i>
+                    <a href="{{ url('group') }}"><i class="fa fa-users fa-2x" id="komunitas" onmouseover="hoverFunction2()" aria-hidden="true"><span class="popuptext" id="myPopup2">Komunitas</span></i>
+                   
+                    </a>
+
                     <i class="fa fa-comments fa-2x" id="pesan" onmouseover="hoverFunction4()" aria-hidden="true"><a
                             href=""></a><span class="popuptext" id="myPopup4">Pesan</span></i>
                     <i class="fa fa-bell fa-2x" id="notifikasi" onmouseover="hoverFunction5()" aria-hidden="true"><a
@@ -40,9 +42,9 @@
                         <button id="mobile-menu"> <i class="fa fa-bars fa-2x"></i></button>
                         <button id="mobile-menu-close"> <i class="fa fa-bars fa-2x"></i></button>
                     </div>
-                    
+
                 </div>
-                
+
                 <div class="right-section-nav">
                     <i class="fa fa-shopping-bag fa-2x" id="marketplace" onmouseover="hoverFunction3()"
                         aria-hidden="true"><a href=""></a><span class="popuptext"
@@ -77,7 +79,7 @@
                      <button type="submit" >Log out</button>
                 </form> --}}
                 </div>
-                
+
             </nav>
             <div class="hamburger-menu">
                 <div class="hamburger-items" id="hamburger-items">
@@ -96,14 +98,15 @@
                 </div>
             </div>
         </header>
-        
+
         <main>
-            
+
             <div class="left-section-body">
                 <div class="upper-left-container">
                     <b>Trending hari ini</b>
                     <hr>
                     <div class="trending-list">
+                        
                         @foreach ($trendings as $trending)
                             @if ($trending->merit > 15)
                                 <a href="">{{ $trending->post_title }} <i class="fa-solid fa-fire"></i></a>
@@ -115,16 +118,14 @@
                     <b>Pintasan Grup</b>
                     <hr>
                     <div class="group-list">
-                        <a href="">Ingin Menjadi Programmer Handal Namun Enggan Ngoding</a>
-                        <a href="">Javascript Bahasa Tol...</a>
-                        <a href="">PHP Bahasa Dewa</a>
-                        <a href="">Komunitas Orang Susah (KOS-BADAK)</a>
-                        <a href="">IMMORTAL FISH (REBORN)</a>
+                        @foreach ($grouplist as $group)
+                            <a href="{{ url($group->id) }}">{{ $group->group_name }}</a>
+                        @endforeach
                     </div>
                 </div>
 
             </div>
-            
+
             <div class="mid-section-body" id="post-detail">
                 <div class="post-status-container">
                     <div class="circle-container">
@@ -225,9 +226,8 @@
 
                             </div>
                         </div>
-                
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
 
             </div>
 
@@ -248,13 +248,9 @@
                     <b>Pertemanan</b>
                     <hr>
                     <div class="friend-list">
-                        <a href="">Kudaeee</a>
-                        <a href="">Presiden RI</a>
-                        <a href="">Kambing jantansss</a>
-                        <a href="">Si Bolang</a>
-                        <a href="">Bobi kartanagara</a>
-                        <a href="">Jardeen</a>
-                        <a href="">Kucing Pemberani</a>
+                        @foreach ($listfriends as $fr)
+                            <a href="">{{ $fr->name }}</a>
+                        @endforeach
                     </div>
                 </div>
             </div>
