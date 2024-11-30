@@ -129,9 +129,9 @@
                           @else
                             <form action="{{ url('addfriend/' . $profile->user_id) }}" method="POST">
                                 @csrf
-                                @if (!isset($friendstatus->friend) || $friendstatus->friend =='false')
+                                @if (!isset($friendstatus->email) || $friendstatus->friend =='false')
                                     <button type="submit">Tambah pertemanan</button>
-                                @elseif ($friendstatus->friend == 'true')
+                                @elseif ($friendstatus->friend == 'true' && $friendstatus->email == Auth::guard('member')->user()->email )
                                     <button type="submit">Putus perteman</button>
                                 @endif
 

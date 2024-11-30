@@ -89,7 +89,7 @@ class InteractionController extends Controller
         $email = Auth::guard('member')->user()->email;
         $record = Profile::where('user_id', $user_id)->where('username', $username)->where('email', $email);
         if ($record->exists()) {
-            if ($record->where('friend', 'true')->exists()) {
+            if ($record->where('friend', 'true')->where('email', $email)->exists()) {
                 Profile::where('user_id', $user_id)->where('username', $username)->where('email', $email)->update(['friend' => 'false']);
                 
             } else if ($record->where('friend', 'false')) {
