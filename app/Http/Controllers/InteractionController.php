@@ -81,4 +81,7 @@ class InteractionController extends Controller
             return view('partials.interaction', ['posts' => $post,'like'=>$dislikebtn]);
         }
     }
+    public function addFriend(){
+        
+    }
 }

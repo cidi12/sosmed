@@ -36,5 +36,6 @@ Route::post('comment/{id}',[CommentController::class, 'comment'])->name('comment
 Route::post('postcomment/{id}',[CommentController::class, 'postcomment'])->name('postcomment');
 Route::post('like/{id}',[InteractionController::class, 'like'])->name('like');
 Route::post('dislike/{id}',[InteractionController::class, 'dislike'])->name('dislike');
+Route::post('addfriend/{id}',[InteractionController::class, 'addFriend'])->name('addfriend');
 Route::get('/{any}', [CredentialController::class, 'index'])
     ->where('any', '.*')->middleware('guest:member');
