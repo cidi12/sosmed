@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class GroupController extends Controller
 {
     public function index (){
-        return view ('dashboard.community');
+        $user_id = Auth::guard('member')->user()->id;
+        // $user_email = Auth::guard('member')->user()->email;
+        $grouplist = Group::select('id','user_id','group_name','total_member')->where('user_id', $user_id)->get();
+        return view ('dashboard.community',['grouplist'=>$grouplist]);
     }
     public function createGroup (){
         return view ('dashboard.creategroup');

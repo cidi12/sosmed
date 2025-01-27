@@ -97,3 +97,49 @@ menuToggleWeb2.addEventListener("click", function () {
     menuToggleWeb2.style.display = 'none'
 
 });
+
+const lowernav = document.querySelector("nav");
+const upperLeftContainer = document.querySelector(".upper-left-container");
+const upperRightContainer = document.querySelector(".upper-right-container");
+let prev = window.scrollY;
+window.onscroll = function () {
+    let curent = window.scrollY;
+    if (prev > curent) {
+        document.querySelector(".post-status-container").style.top = "75px";
+        lowernav.style.borderStyle = "none";
+        lowernav.style.boxShadow ='none'
+        upperLeftContainer.style.top = "145px";
+        upperRightContainer.style.top = "145px";
+    } else {
+        document.querySelector(".post-status-container").style.top = "-35px";
+     
+        lowernav.style.borderBottom = "2px solid #d4a373";
+        lowernav.style.borderTop = "none"
+        lowernav.style.borderLeft= "none"
+        lowernav.style.borderRight= "none"
+        lowernav.style.boxShadow = " rgba(99, 99, 99, 0.3) 0px 8px 8px -4px"
+        upperLeftContainer.style.top = "75px";
+        upperRightContainer.style.top = "75px";
+    }
+    prev = curent;
+};
+
+const textarea = document.querySelectorAll('.txtarea');
+document.body.addEventListener('htmx:afterRequest', (event) => {
+    if (event.detail.successful) { // Check if the request was successful
+        for (let i = 0; i < textarea.length; i++) {
+            textarea[i].value = "";
+            textarea[i].style.height = 'auto';
+          }
+         // Clear the textarea
+       
+    }
+});
+const txarea = document.querySelectorAll('#post-input');
+for (let i = 0; i < txarea.length; i++) {
+    txarea[i].addEventListener('input', () => {
+        txarea[i].style.height = 'auto'; // Reset height to calculate new size
+        txarea[i].style.height = `${txarea[i].scrollHeight}px`; // Adjust height to scrollHeight
+    });
+  }
+    

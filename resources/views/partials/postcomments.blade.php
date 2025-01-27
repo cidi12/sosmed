@@ -43,11 +43,25 @@
     <p> {{ $posts->total_comment }} komentar</p>
 </div>
 
-<div class="comment-list">
+<div class="post-comment-list">
     @foreach ($comments as $comment)
-        <b>
-            <p>{{ $comment->commenter }}</p>
+        {{-- <b>
+            <a href="{{ url('viewprofile/'.$comment->user_id) }}">{{ $comment->commenter }}</a>
         </b>
-        <p>{{ $comment->comment }}</p>
+        <p>{{ $comment->comment }}</p> --}}
+        <div class="post-comment-body">
+            <div class="post-header">
+                <img src="{{ asset('img/logo.jpg') }}" alt="">
+    
+            </div>
+            <div class="comment-body">
+               
+                <b>
+                    <a href="{{ url('viewprofile/'.$comment->user_id) }}">{{ $comment->commenter }}</a>
+                </b> 
+                <p>{{ $comment->comment }}</p>
+            </div>
+          </div>
+        
     @endforeach
 </div>

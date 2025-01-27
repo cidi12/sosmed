@@ -46,10 +46,17 @@
 </div>
 <a href="{{  url('viewpost/'.$post->id)}}">Lihat komentar lain</a>
      <div class="comment-list">
-         <b>
-             <p> {{ $post->post_commenter }}</p>
-         </b>
-         <p>{{ $post->post_comment }} </p>
+        <div class="post-header">
+            <img src="{{ asset('img/logo.jpg') }}" alt="">
+
+        </div>
+        <div class="comment-body">
+            <b>
+                <p> {{ $post->post_commenter }}</p>
+            </b>
+            
+            <p>{{ $post->post_comment }} </p>
+        </div>
      </div>
  @endforeach
 

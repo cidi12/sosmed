@@ -19,44 +19,89 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // Post::insert([
-        //     [
-        //         'username' => 'Kucing',
-        //         'email' => 'test@example.com',
-        //         'post_title' => 'postingan 1',
-        //         'post_content' => 'isi post 1',
+        Post::insert([
+            [   'user_id' => 999,
+                'username' => 'Kucing',
+                'email' => 'test@example.com',
+                'post_title' => 'postingan 1',
+                'post_content' => 'isi post 1',
               
 
-        //     ],
+            ],
 
-        //     [
-        //         'username' => 'Shiro',
-        //         'email' => 'test@example2.com',
-        //         'post_title' => 'postingan 2',
-        //         'post_content' => 'isi post 2',
+            [   'user_id' => 999,
+                'username' => 'Shiro',
+                'email' => 'test@example2.com',
+                'post_title' => 'postingan 2',
+                'post_content' => 'isi post 2',
                 
               
 
-        //     ],
-        //     [
-        //         'username' => 'Kimbab',
-        //         'email' => 'test@example3.com',
-        //         'post_title' => 'postingan 3',
-        //         'post_content' => 'isi post 3',
+            ],
+            [   'user_id' => 999,
+                'username' => 'Shiro',
+                'email' => 'test@example2.com',
+                'post_title' => 'postingan 2',
+                'post_content' => 'isi post 2',
+                
               
 
-        //     ]
-        // ]);
-        Credential::create(
-            [
+            ],
+            [   'user_id' => 999,
+                'username' => 'Shiro',
+                'email' => 'test@example2.com',
+                'post_title' => 'postingan 2',
+                'post_content' => 'isi post 2',
+                
+              
 
+            ],
+            [   'user_id' => 999,
+                'username' => 'Shiro',
+                'email' => 'test@example2.com',
+                'post_title' => 'postingan 2',
+                'post_content' => 'isi post 2',
                 
-                    'username' => 'Cerpelai',
-                    'email' => 'qwe@qwe.com',
-                    'password' =>   Hash::make('qwe'),
+              
+
+            ],
+            [   'user_id' => 999,
+                'username' => 'Shiro',
+                'email' => 'test@example2.com',
+                'post_title' => 'postingan 2',
+                'post_content' => 'isi post 2',
                 
+              
+
+            ],
+            [   'user_id' => 999,
+                'username' => 'Shiro',
+                'email' => 'test@example2.com',
+                'post_title' => 'postingan 2',
+                'post_content' => 'isi post 2',
+                
+              
+
+            ],
+            [   'user_id' => 999,
+                'username' => 'Kimbab',
+                'email' => 'test@example3.com',
+                'post_title' => 'postingan 3',
+                'post_content' => 'isi post 3',
+              
+
             ]
+        ]);
+        // Credential::create(
+        //     [
 
-        );
+                
+        //             'username' => 'Cerpelai',
+        //             'email' => 'qwe@qwe.com',
+        //             'password' =>   Hash::make('qwe'),
+                
+        //     ]
+
+        // );
     }
 }
